@@ -1,0 +1,365 @@
+/*Homepage start*/
+/*body*/
+.container {
+    margin: 0 auto;
+    max-width: 1920px !important;
+    background-color: #ECF0F5 !important;
+    padding:0 20px 0 20px !important;
+}
+.lSAction .icon {
+    font-size: 25px;
+    color: #fff !important;
+    text-align: center;
+    line-height: 40px;
+}
+.xv-menuwrapper .dl-menu a i {
+    padding-right: 10px !important;
+}
+.xv-menuwrapper .dl-menu>li>a {
+    padding: 0 5px !important;
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: black !important;
+    line-height: 75px;
+    position: relative;
+    margin-left: 15px;
+}
+a.btn.btn-primary.btn-lg {
+    color: white !important;
+}
+.custom-post{
+    color:white !important;
+}
+figure.card-img.figure {
+    margin-bottom: 0px !important;
+}
+wave.custom-style {
+    margin-bottom: -47px;
+}
+/* james section start */
+.James {
+    background:#E4EBF2;
+    padding: 0 0px;
+}
+.Worthy {
+    padding: 60px;
+}
+.Worthy h4 {
+    font-size: 37px;
+    font-weight: 600;
+	padding-bottom: 20px;
+}
+.dolor img {
+    max-width: 100%;
+    margin-top: -50px;
+}
+.same-size-img{
+    height:300px;
+}
+/* james sectiom end */
+
+.control-sidebar .bottom-gradient::after, .theme-dark .bottom-gradient::after {
+    background-image: linear-gradient(to bottom,rgb(255 255 255 / 0%) 0,#E4EBF2 100%) !important;
+}
+.img-wrapper img {
+    width: 100% !important;
+}
+/*banner*/
+.text-white a, .text-white b, .text-white h1, .text-white h2, .text-white h3, .text-white h4, .text-white h5, .text-white h6, .text-white i, .text-white li, .text-white p, .text-white span, .text-white strong {
+    color: black !important;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: black !important;
+}
+p {
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: .2px;
+    color: black !important;
+}
+
+
+/* faq section start */
+.panel-group .panel {
+        border-radius: 0;
+        box-shadow: none;
+        border-color: #EEEEEE;
+    }
+
+    .panel-default > .panel-heading {
+        padding: 0;
+        border-radius: 0;
+        color: #212121;
+        background-color: #FAFAFA;
+        border-color: #EEEEEE;
+    }
+
+    .panel-title {
+        font-size: 14px;
+    }
+
+    .panel-title > a {
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+    }
+
+    .more-less {
+        float: right;
+        color: #212121;
+    }
+
+    .panel-default > .panel-heading + .panel-collapse > .panel-body {
+        border-top-color: #EEEEEE;
+    }
+    form {
+        border: 0px solid #f1f1f1;
+      }
+      
+      /* Add some padding and a grey background color to containers */
+      
+      
+      /* Style the input elements and the submit button */
+      input[type=text], input[type=email], input[type=password] {
+        background: none  !important;
+        border-width: 0px 0px 1px 0px !important;
+        border-color: lightgray !important;
+    border-radius: 3 !important;
+    float: none;
+    font-size: 100%;
+    height: auto;
+    letter-spacing: normal;
+    list-style: none;
+    outline: none;
+    position: static;
+    text-decoration: none;
+    text-indent: 0;
+    text-shadow: none;
+    text-transform: none;
+    width: 100%;
+    visibility: visible;
+    overflow: visible;
+    margin: 0;
+    padding: 20px 30 !important;
+    box-sizing: border-box;
+    box-shadow: none;
+      }
+      input[type=submit]:hover {
+        opacity: 0.8;
+    }
+    .btn-success:not(:disabled):not(.disabled).active, .btn-success:not(:disabled):not(.disabled):active, .show>.btn-success.dropdown-toggle {
+        color: #fff;
+        background-color: #FF1744 !important;
+        border-color: #FF1744 !important;
+        opacity: 0.8 !important;
+        box-shadow: 0 3px 9px 0 rgb(0 0 0 / 26%);
+    }
+    .btn-success:focus, .btn-success:hover{
+        box-shadow: 0 3px 9px 0 rgb(0 0 0 / 26%);
+    opacity: .8;
+    color: #fff;
+    background-color: #FF1744 !important;
+    }
+    .container-form {
+    padding: 20px;
+}
+      /* Add margins to the checkbox */
+      input[type=checkbox] {
+        margin-top: 5px;
+      }
+      
+      /* Style the submit button */
+      input[type=submit], .loginbtn {
+        background-color: #FF1744 !important;
+        color: white;
+        padding: 12px;
+        border: none;
+        width: 100%;
+    }
+/* ----- v CAN BE DELETED v ----- */
+/*footer start*/
+.footer {
+    background-image: url('/../../nostalgicSoulEntertainment/assets/img/demo/b6.jpg') !important;
+    padding: 50px 30px;
+    color: white;
+}
+h2.footer-title {
+    font-size: 29px;
+    margin-bottom: 30px;
+}
+h2.footer-title {
+    font-size: 29px;
+    margin-bottom: 30px;
+    color: white !important;
+}
+ul.quick-links {
+    margin: 0;
+    padding: 5px;
+}
+p.footer-para {
+    color: white !important;
+}
+li.links-li {
+    line-height: 2;
+    font-size: 16px;
+}
+i.fa.fa-home, i.fa.fa-phone, i.fa.fa-envelope, i.fa.fa-angle-double-right{
+    margin-right: 10px;
+    font-size: 20px;
+}
+i.fa.fa-facebook, i.fa.fa-twitter, i.fa.fa-instagram, i.fa.fa-spotify, i.fa.fa-apple, .i.fa.youtube{
+    margin-right: 10px;
+    font-size: 20px;
+    background-color: white;
+    color: #FF1744;
+    padding: 14px;
+    border-radius: 100%;
+}
+i.fa.fa-facebook:hover, i.fa.fa-twitter:hover, i.fa.fa-instagram:hover, i.fa.fa-spotify:hover, i.fa.fa-apple:hover, .i.fa.youtube :hover{
+    margin-right: 10px;
+    font-size: 20px;
+    background-color: #FF1744;
+    color: white;
+    padding: 14px;
+    border-radius: 100%;
+}
+i.fa.fa-home {
+    margin-right: 0px;
+}
+.copyright {
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: lightgray;
+}
+i.fa.fa-home {
+    margin-right: 0px;
+    font-size: 15px;
+}
+.navbar .container, .navbar .container-fluid, .navbar .container-lg, .navbar .container-md, .navbar .container-sm, .navbar .container-xl {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background: white !important;
+}
+.xv-menuwrapper .dl-menu>li .btn {
+    color: #fff!important;
+    line-height: 20px!important;
+    vertical-align: middle;
+    width: 100px !important;
+}
+.custom-head {
+    font-weight: 800;
+    color: #FF1744 !important;
+}
+/*footer ends*/
+/*Homepage ends*/
+
+/*Register Start*/
+.container-register{
+    margin: 0 auto;
+    max-width: 1920px !important;
+    background-color: #ECF0F5 !important;
+    height: 100% !important;
+}
+.p-t-b-100 {
+    padding-top: 50px!important;
+    padding-bottom: 50px!important;
+    height: 100% !important;
+}
+
+.sidebar-mini.sidebar-collapse .has-sidebar, .sidebar-mini.sidebar-collapse .main-footer, .sidebar-mini.sidebar-collapse .right-side {
+    margin-left: 0px !important;
+    z-index: 840;
+}
+.page {
+    margin-bottom: 0px !important;
+}
+.form-control-lg, .input-group-lg>.form-control, .input-group-lg>.input-group-addon {
+    border: 2px solid #e1e8ee;
+    border-radius: 5px;
+    color: white !important;
+    font-size: 14px;
+    height: 50px;
+    padding: 15px;
+    width: 100%;
+    
+}
+
+
+.navmenu li{
+
+    padding:4px;
+
+}
+
+@media only screen and (max-width:1920px) and (min-height:1080px){
+    .container-register{
+        margin: 0 auto;
+        max-width: 1920px !important;
+        background-color: #ECF0F5 !important;
+        height: 1080px !important;
+    }
+    header#register-header {
+        margin-top: 15%;
+    }
+}
+/*register ends*/
+/*login start*/
+div#form-design {
+    background-color: white !important;
+    box-shadow: 0 0 2px 2px lightgrey;
+    padding: 30px;
+}
+.form-line-2 {
+    margin: 21px;
+}
+header#register-header {
+    margin-bottom: -70px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+input.btn.btn-outline-primary.btn-sm.pl-4.pr-4 {
+    padding: 14px !important;
+    border-radius: 3px !important;
+}
+.btn {
+    display: inline-block;
+    font-weight: 300;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 3px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-control-lg, .input-group-lg>.form-control, .input-group-lg>.input-group-addon {
+    color :black !important
+}
+
+@media only screen and (max-width:1920px) and (min-height:1080px){
+.text-center.s-14.l-s-2.my-2 {
+    margin-top: 15% !important;
+}
+}
+/*reset password start*/
+#reset-design {
+    background: #FF1744 !important;
+    color: white !important;
+    padding: 12px !important;
+    font-size: 22px !important;
+    text-align: center !important;
+}
+/*reset password start ends*/
