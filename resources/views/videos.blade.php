@@ -53,7 +53,7 @@
                     <div class="card">
                         <figure class="card-img figure">
                             <div class="img-wrapper">
-                                <img src="assets/img/demo/v51.jpg" alt="Card image">
+                                <img src="{{ asset('public/assets/img/demo/v51.jpg')}}" alt="Card image">
                             </div>
                             <div class="img-overlay"></div>
                                 <div class="d-flex">
@@ -78,7 +78,7 @@
                     <div class="card">
                         <figure class="card-img figure">
                             <div class="img-wrapper">
-                                <img src="assets/img/demo/v81.jpg" alt="Card image">
+                                <img src="{{ asset('public/assets/img/demo/v81.jpg')}}" alt="Card image">
                             </div>
                             <div class="img-overlay"></div>
                                 <div class="d-flex">
@@ -103,7 +103,7 @@
                     <div class="card">
                         <figure class="card-img figure">
                             <div class="img-wrapper">
-                                <img src="assets/img/demo/v11.jpg" alt="Card image">
+                                <img src="{{ asset('public/assets/img/demo/v11.jpg')}}" alt="Card image">
                             </div>
                             <div class="img-overlay"></div>
                                 <div class="d-flex">
@@ -147,7 +147,7 @@
                          data-loop="false">
                         <div class="d-flex align-items-center ">
                             <div class="col-5">
-                                <img src="assets/img/demo/v51.jpg" alt="Card image">
+                                <img src="{{ asset('public/assets/img/demo/v51.jpg')}}" alt="Card image">
                             </div>
                             <div class="ml-3">
                                 <a href="/video">
@@ -158,7 +158,7 @@
                         </div>
                         <div class="d-flex align-items-center ">
                             <div class="col-5">
-                                <img src="assets/img/demo/v81.jpg" alt="Card image">
+                                <img src="{{ asset('public/assets/img/demo/v81.jpg')}}" alt="Card image">
                             </div>
                             <div class="ml-3">
                                 <a href="/video">
@@ -169,7 +169,7 @@
                         </div>
                         <div class="d-flex align-items-center ">
                             <div class="col-5">
-                                <img src="assets/img/demo/v11.jpg" alt="Card image">
+                                <img src="{{ asset('public/assets/img/demo/v11.jpg')}}" alt="Card image">
                             </div>
                             <div class="ml-3">
                                 <a href="/video">
@@ -180,7 +180,7 @@
                         </div>
                         <div class="d-flex align-items-center ">
                             <div class="col-5">
-                                <img src="assets/img/demo/v81.jpg" alt="Card image">
+                                <img src="{{ asset('public/assets/img/demo/v81.jpg')}}" alt="Card image">
                             </div>
                             <div class="ml-3">
                                 <a href="/video">
@@ -191,7 +191,7 @@
                         </div>
                         <div class="d-flex align-items-center ">
                             <div class="col-5">
-                                <img src="assets/img/demo/v51.jpg" alt="Card image">
+                                <img src="{{ asset('public/assets/img/demo/v51.jpg')}}" alt="Card image">
                             </div>
                             <div class="ml-3">
                                 <a href="/video">
@@ -214,7 +214,7 @@
            <div class="row">
                <div class="col-lg-3 col-md-6 mb-4">
                    <div class="card no-b">
-                       <img src="assets/img/demo/v11.jpg" alt="">
+                       <img src="{{ asset('public/assets/img/demo/v11.jpg')}}" alt="">
                        <div class="p-3">
                            <div class="mb-1">
                                <a href="/video">
@@ -227,7 +227,7 @@
                </div>
                <div class="col-lg-3 col-md-6 mb-4">
                    <div class="card no-b">
-                       <img src="assets/img/demo/v51.jpg" alt="">
+                       <img src="{{ asset('public/assets/img/demo/v51.jpg')}}" alt="">
                        <div class="p-3">
                            <div class="mb-1">
                                <a href="/video">
@@ -240,7 +240,7 @@
                </div>
                <div class="col-lg-3 col-md-6 mb-4">
                    <div class="card no-b">
-                       <img src="assets/img/demo/v9 (1).jpg" alt="">
+                       <img src="{{ asset('public/assets/img/demo/v9 (1).jpg')}}" alt="">
                        <div class="p-3">
                            <div class="mb-1">
                                <a href="/video">
@@ -253,7 +253,7 @@
                </div>
                <div class="col-lg-3 col-md-6 mb-4">
                    <div class="card no-b">
-                       <img src="assets/img/demo/v11.jpg" alt="">
+                       <img src="{{ asset('public/assets/img/demo/v11.jpg')}}" alt="">
                        <div class="p-3">
                            <div class="mb-1">
                                <a href="/video">
@@ -268,7 +268,7 @@
            <div class="row mt-4">
                <div class="col-lg-3 col-md-6 mb-4">
                    <div class="card no-b">
-                       <img src="assets/img/demo/v81.jpg" alt="">
+                       <img src="{{ asset('public/assets/img/demo/v81.jpg')}}" alt="">
                        <div class="p-3">
                            <div class="mb-1">
                                <a href="/video">
@@ -281,7 +281,7 @@
                </div>
                <div class="col-lg-3 col-md-6 mb-4">
                    <div class="card no-b">
-                       <img src="assets/img/demo/v9 (1).jpg" alt="">
+                       <img src="{{ asset('public/assets/img/demo/v9 (1).jpg')}}" alt="">
                        <div class="p-3">
                            <div class="mb-1">
                                <a href="/video">
@@ -294,7 +294,7 @@
                </div>
                <div class="col-lg-3 col-md-6 mb-4">
                    <div class="card no-b">
-                       <img src="assets/img/demo/v51.jpg" alt="">
+                       <img src="{{ asset('public/assets/img/demo/v51.jpg')}}" alt="">
                        <div class="p-3">
                            <div class="mb-1">
                                <a href="/video">
@@ -307,7 +307,7 @@
                </div>
                <div class="col-lg-3 col-md-6 mb-4">
                    <div class="card no-b">
-                       <img src="assets/img/demo/v81.jpg" alt="">
+                       <img src="{{ asset('public/assets/img/demo/v81.jpg')}}" alt="">
                        <div class="p-3">
                            <div class="mb-1">
                                <a href="/video">

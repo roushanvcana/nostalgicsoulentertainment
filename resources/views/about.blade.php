@@ -70,7 +70,7 @@
                                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 position">
                                         <div class="story">
                                             <!--<img  src="{{ asset('assets/img/demo/ourstory.jpeg')}}" alt="b22">-->
-                                            <img  src="{{ asset('assets/img/demo/Cecil-Jones-Photo.JPG')}}" alt="b22" width="300px">
+                                            <img src="{{ asset('public/assets/img/demo/Cecil-Jones-Photo.JPG')}}" alt="b22" width="300px">
                                         </div>
                                     </div>
                                     <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 pt-5">
@@ -107,7 +107,7 @@
                                     <div class="w-50 text-center">
                                         <figure class="mt-1">
                                             <a href="#">
-                                            <img width="250" height="250" src="assets/img/demo/u4.jpg" class="img-fluid circle wp-post-image" sizes="(max-width: 250px) 100vw, 250px"></a>
+                                            <img width="250" height="250" src="{{ asset('public/assets/img/demo/u4.jpg')}}" class="img-fluid circle wp-post-image" sizes="(max-width: 250px) 100vw, 250px"></a>
                                         </figure>
                                         <div>
                                             <h6><a href="#">Asrar Khan</a>
@@ -123,7 +123,7 @@
                                     <div class="w-50 text-center">
                                         <figure class="mt-1">
                                             <a href="#">
-                                            <img width="250" height="250" src="assets/img/demo/u5.jpg" class="img-fluid circle wp-post-image" sizes="(max-width: 250px) 100vw, 250px"></a>
+                                            <img width="250" height="250" src="{{ asset('public/assets/img/demo/u5.jpg')}}" class="img-fluid circle wp-post-image" sizes="(max-width: 250px) 100vw, 250px"></a>
                                         </figure>
                                         <div>
                                             <h6><a href="#">Asrar Khan</a>
@@ -139,7 +139,7 @@
                                     <div class="w-50 text-center">
                                         <figure class="mt-1">
                                             <a href="#">
-                                            <img width="250" height="250" src="assets/img/demo/u7.jpg" class="img-fluid circle wp-post-image" sizes="(max-width: 250px) 100vw, 250px"></a>
+                                            <img width="250" height="250" src="{{ asset('public/assets/img/demo/u7.jpg')}}" class="img-fluid circle wp-post-image" sizes="(max-width: 250px) 100vw, 250px"></a>
                                         </figure>
                                         <div>
                                             <h6><a href="#">Asrar Khan</a>
@@ -155,7 +155,7 @@
                                     <div class="w-50 text-center">
                                         <figure class="mt-1">
                                             <a href="#">
-                                            <img width="250" height="250" src="assets/img/demo/u4.jpg" class="img-fluid circle wp-post-image" sizes="(max-width: 250px) 100vw, 250px"></a>
+                                            <img width="250" height="250" src="{{ asset('public/assets/img/demo/u4.jpg')}}" class="img-fluid circle wp-post-image" sizes="(max-width: 250px) 100vw, 250px"></a>
                                         </figure>
                                         <div>
                                             <h6><a href="#">Asrar Khan</a>
@@ -171,7 +171,7 @@
                                     <div class="w-50 text-center">
                                         <figure class="mt-1">
                                             <a href="#">
-                                            <img width="250" height="250" src="assets/img/demo/u5.jpg" class="img-fluid circle wp-post-image" sizes="(max-width: 250px) 100vw, 250px"></a>
+                                            <img width="250" height="250" src="{{ asset('public/assets/img/demo/u5.jpg')}}" class="img-fluid circle wp-post-image" sizes="(max-width: 250px) 100vw, 250px"></a>
                                         </figure>
                                         <div>
                                             <h6><a href="#">Asrar Khan</a>

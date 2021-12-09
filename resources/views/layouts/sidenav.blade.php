@@ -19,7 +19,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <i class="icon-play s-28"></i>
                             <figure class="avatar-md float-left mr-3 mt-1">
-                                <img class="r-5" src="assets/img/demo/a1.jpg" alt="">
+                                <img class="r-5" src="{{ asset('public/assets/img/demo/a1.jpg')}}" alt="">
                             </figure>
                             <div>
                                 <h6>alexander Pierce</h6>Atif Aslam
@@ -33,7 +33,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <i class="icon-play s-28"></i>
                             <figure class="avatar-md float-left mr-3 mt-1">
-                                <img class="r-5" src="assets/img/demo/a2.jpg" alt="">
+                                <img class="r-5" src="{{ asset('public/assets/img/demo/a2.jpg')}}" alt="">
                             </figure>
                             <div>
                                 <h6>alexander Pierce</h6>Atif Aslam
@@ -47,7 +47,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <i class="icon-play s-28"></i>
                             <figure class="avatar-md float-left mr-3 mt-1">
-                                <img class="r-5" src="assets/img/demo/a4.jpg" alt="">
+                                <img class="r-5" src="{{ asset('public/assets/img/demo/a4.jpg')}}" alt="">
                             </figure>
                             <div>
                                 <h6>alexander Pierce</h6>Atif Aslam
@@ -77,7 +77,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <i class="icon-play s-28"></i>
                             <figure class="avatar-md float-left mr-3 mt-1">
-                                <img class="r-5" src="assets/img/demo/a6.jpg" alt="">
+                                <img class="r-5" src="{{ asset('public/assets/img/demo/a6.jpg')}}" alt="">
                             </figure>
                             <div>
                                 <h6>alexander Pierce</h6>Atif Aslam
@@ -144,7 +144,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="col-10">
                                     <figure class="avatar avatar-md float-left  mr-3 mt-1">
-                                        <img src="assets/img/demo/u1.jpg" alt="">
+                                        <img src="{{ asset('public/assets/img/demo/u1.jpg')}}" alt="">
                                     </figure>
                                     <h6>Zoe Foe</h6>
                                     <small>5 Albums - 50 Songs</small>
@@ -156,7 +156,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="col-10">
                                     <figure class="avatar avatar-md float-left  mr-3 mt-1">
-                                        <img src="assets/img/demo/u2.jpg" alt="">
+                                        <img src="{{ asset('public/assets/img/demo/u2.jpg')}}" alt="">
                                     </figure>
                                     <h6>Zoe Foe</h6>
                                     <small>5 Albums - 50 Songs</small>
@@ -168,7 +168,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="col-10">
                                     <figure class="avatar avatar-md float-left  mr-3 mt-1">
-                                        <img src="assets/img/demo/u3.jpg" alt="">
+                                        <img src="{{ asset('public/assets/img/demo/u3.jpg')}}" alt="">
                                     </figure>
                                     <h6>Zoe Foe</h6>
                                     <small>5 Albums - 50 Songs</small>
@@ -180,7 +180,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="col-10">
                                     <figure class="avatar avatar-md float-left  mr-3 mt-1">
-                                        <img src="assets/img/demo/u6.jpg" alt="">
+                                        <img src="{{ asset('public/assets/img/demo/u6.jpg')}}" alt="">
                                     </figure>
                                     <h6>Zoe Foe</h6>
                                     <small>5 Albums - 50 Songs</small>
@@ -274,31 +274,31 @@
             <ul class="dl-menu navmenu align-items-center">
                 <!-- <li class="ajaxifyPage"><a href="/">Home</a> -->
 				<li>
-					<a href="/nostalgicSoulEntertainment/"><i class="fa fa-home"></i><span>Home</span></a>
+					<a href="{{ url('/') }}"><i class="fa fa-home"></i><span>Home</span></a>
                 </li>
                  <li><!-- <a class="ajaxifyPage" href="categories.html"> -->
-                    <a href="/nostalgicSoulEntertainment/genre"><i class="icon icon-layers-1"></i><span>Genre</span></a>
+                    <a href="{{ url('genre') }}"><i class="icon icon-layers-1"></i><span>Genre</span></a>
                 </li>
     
                 <li><!-- <a class="ajaxifyPage" href="albums.html"> -->
-                    <a href="/nostalgicSoulEntertainment/albums"><i class="icon icon-windows"></i><span>Albums</span></a>
+                    <a href="{{ url('albums') }}"><i class="icon icon-windows"></i><span>Albums</span></a>
                 </li>
                  <li><!--<a class="ajaxifyPage" href="videos.html"> -->
-                    <a href="/nostalgicSoulEntertainment/videos"><i class="icon icon-video-player-2"></i><span>Videos</span></a>
+                    <a href="{{ url('videos') }}"><i class="icon icon-video-player-2"></i><span>Videos</span></a>
                 </li>
                 <li><!-- <a class="ajaxifyPage" href="events.html"> -->
-                    <a href="/nostalgicSoulEntertainment/about"><i class="fa fa-user"></i><span>About</span></a>
+                    <a href="{{ url('about') }}"><i class="fa fa-user"></i><span>About</span></a>
                 </li>
     
                 <li><!-- <a class="ajaxifyPage" href="contact.html"> -->
-                    <a href="/nostalgicSoulEntertainment/contact"><i class="fa fa-mobile"></i><span>Contact</span></a>
+                    <a href="{{ url('contact') }}"><i class="fa fa-mobile"></i><span>Contact</span></a>
                 </li>
                 <!-- <li><a class="ajaxifyPage" href="blog.html"> -->
                     <!-- <i class="icon icon-newspaper "></i> <span>Blog</span> 
                 </li>-->
     
                  <li>
-                    <a href="/nostalgicSoulEntertainment/artists"><i class="icon icon-users"></i><span>Artists</span></a>
+                    <a href="{{ url('artists') }}"><i class="icon icon-users"></i><span>Artists</span></a>
                 </li>
                 <!-- <li><a href="#modalSignUp" class="btn btn-primary nav-btn" data-toggle="modal" 
                        data-target="#modalSignUp">Sign
@@ -385,7 +385,7 @@
     <div class="col-2 active-track" style="">
           <div class="d-flex">
             <div class="float-left">
-              <!--a href="{{ asset('/assets/media/track1.json') }}">
+              <!--a href="{{ asset('/assets/media/track1.json') }}">   
         <div class="avatar-md mr-3">
         <img id="artwork" class="r-3" width="65" height="65" src="{{ asset('/assets/img/demo/a5.jpg') }}" alt="artist">
         </div>

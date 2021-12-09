@@ -138,7 +138,7 @@
                     <div class="card-body">
                         <div class="media my-5 ">
                             <div class="avatar avatar-md mr-3 mt-1">
-                                <img src="assets/img/demo/u7.png" alt="user">
+                                <img src="{{ asset('public/assets/img/demo/u7.png')}}" alt="user">
                             </div>
                             <div class="media-body">
                                 <h6 class="mt-0">Ami Fro</h6>
@@ -147,7 +147,7 @@
                         </div>
                         <div class="media my-5 ">
                             <div class="avatar avatar-md mr-3 mt-1">
-                                <img src="assets/img/demo/u6.png" alt="user">
+                                <img src="{{ asset('public/assets/img/demo/u6.png')}}" alt="user">
                             </div>
                             <div class="media-body">
                                 <h6 class="mt-0">Sara Kamzoon</h6>
@@ -155,7 +155,7 @@
                                 <div class="media p-2 my-4">
                                     <a href="#">
                                         <div class="avatar avatar-md mr-3 mt-1">
-                                            <img src="assets/img/demo/u8.png" alt="user">
+                                            <img src="{{ asset('public/assets/img/demo/u8.png')}}" alt="user">
                                         </div>
                                     </a>
                                     <div class="media-body">
@@ -167,7 +167,7 @@
                                 <div class="media p-2 my-4">
                                     <a href="#">
                                         <div class="avatar avatar-md mr-3 mt-1">
-                                            <img src="assets/img/demo/u7.png" alt="user">
+                                            <img src="{{ asset('public/assets/img/demo/u7.png')}}" alt="user">
                                         </div>
                                     </a>
                                     <div class="media-body">
@@ -182,7 +182,7 @@
                         </div>
                         <div class="media my-5 ">
                             <div class="avatar avatar-md mr-3 mt-1">
-                                <img src="assets/img/demo/u9.png" alt="user">
+                                <img src="{{ asset('public/assets/img/demo/u9.png')}}" alt="user">
                             </div>
 
                             <div class="media-body">
@@ -194,7 +194,7 @@
                         </div>
                         <div class="media my-5 ">
                             <div class="avatar avatar-md mr-3 mt-1">
-                                <img src="assets/img/demo/u10.png" alt="user">
+                                <img src="{{ asset('public/assets/img/demo/u10.png')}}" alt="user">
                             </div>
                             <div class="media-body">
                                 <h6 class="mt-0">Ami Fro </h6>
@@ -269,7 +269,7 @@
                    <div class="card-body">
                        <div class="d-flex align-items-center mb-4 ">
                            <div class="col-5">
-                               <img src="assets/img/demo/v51.jpg" alt="Card image">
+                               <img src="{{ asset('public/assets/img/demo/v51.jpg')}}" alt="Card image">
                            </div>
                            <div class="ml-3">
                                <a href="video-single.html">
@@ -280,7 +280,7 @@
                        </div>
                        <div class="d-flex align-items-center mb-4 ">
                            <div class="col-5">
-                               <img src="assets/img/demo/v81.jpg" alt="Card image">
+                               <img src="{{ asset('public/assets/img/demo/v81.jpg')}}" alt="Card image">
                            </div>
                            <div class="ml-3">
                                <a href="video-single.html">
@@ -291,7 +291,7 @@
                        </div>
                        <div class="d-flex align-items-center mb-4 ">
                            <div class="col-5">
-                               <img src="assets/img/demo/v11.jpg" alt="Card image">
+                               <img src="{{ asset('public/assets/img/demo/v11.jpg')}}" alt="Card image">
                            </div>
                            <div class="ml-3">
                                <a href="video-single.html">
@@ -302,7 +302,7 @@
                        </div>
                        <div class="d-flex align-items-center mb-4 ">
                            <div class="col-5">
-                               <img src="assets/img/demo/v9 (1).jpg" alt="Card image">
+                               <img src="{{ asset('public/assets/img/demo/v9 (1).jpg')}}" alt="Card image">
                            </div>
                            <div class="ml-3">
                                <a href="video-single.html">
@@ -317,7 +317,7 @@
                 <div class="card p-4 my-4">
                     <div class="d-flex align-items-center mb-4 ">
                         <div class="col-5">
-                            <img src="assets/img/demo/v51.jpg" alt="Card image">
+                            <img src="{{ asset('public/assets/img/demo/v51.jpg')}}" alt="Card image">
                         </div>
                         <div class="ml-3">
                             <a href="video-single.html">
@@ -328,7 +328,7 @@
                     </div>
                     <div class="d-flex align-items-center mb-4 ">
                         <div class="col-5">
-                            <img src="assets/img/demo/v11.jpg" alt="Card image">
+                            <img src="{{ asset('public/assets/img/demo/v11.jpg')}}" alt="Card image">
                         </div>
                         <div class="ml-3">
                             <a href="video-single.html">
@@ -339,7 +339,7 @@
                     </div>
                     <div class="d-flex align-items-center mb-4 ">
                         <div class="col-5">
-                            <img src="assets/img/demo/v81.jpg" alt="Card image">
+                            <img src="{{ asset('public/assets/img/demo/v81.jpg')}}" alt="Card image">
                         </div>
                         <div class="ml-3">
                             <a href="video-single.html">
@@ -350,7 +350,7 @@
                     </div>
                     <div class="d-flex align-items-center mb-4 ">
                         <div class="col-5">
-                            <img src="assets/img/demo/v9 (1).jpg" alt="Card image">
+                            <img src="{{ asset('public/assets/img/demo/v9 (1).jpg')}}" alt="Card image">
                         </div>
                         <div class="ml-3">
                             <a href="video-single.html">
@@ -361,7 +361,7 @@
                     </div>
                     <div class="d-flex align-items-center mb-4 ">
                         <div class="col-5">
-                            <img src="assets/img/demo/v81.jpg" alt="Card image">
+                            <img src="{{ asset('public/assets/img/demo/v81.jpg')}}" alt="Card image">
                         </div>
                         <div class="ml-3">
                             <a href="video-single.html">
@@ -372,7 +372,7 @@
                     </div>
                     <div class="d-flex align-items-center mb-4 ">
                         <div class="col-5">
-                            <img src="assets/img/demo/v9 (1).jpg" alt="Card image">
+                            <img src="{{ asset('public/assets/img/demo/v9 (1).jpg')}}" alt="Card image">
                         </div>
                         <div class="ml-3">
                             <a href="video-single.html">
@@ -383,7 +383,7 @@
                     </div>
                     <div class="d-flex align-items-center mb-4 ">
                         <div class="col-5">
-                            <img src="assets/img/demo/v51.jpg" alt="Card image">
+                            <img src="{{ asset('public/assets/img/demo/v51.jpg')}}" alt="Card image">
                         </div>
                         <div class="ml-3">
                             <a href="video-single.html">
@@ -394,7 +394,7 @@
                     </div>
                     <div class="d-flex align-items-center mb-4 ">
                         <div class="col-5">
-                            <img src="assets/img/demo/v11.jpg" alt="Card image">
+                            <img src="{{ asset('public/assets/img/demo/v11.jpg')}}" alt="Card image">
                         </div>
                         <div class="ml-3">
                             <a href="video-single.html">

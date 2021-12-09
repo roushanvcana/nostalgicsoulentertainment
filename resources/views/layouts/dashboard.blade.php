@@ -244,38 +244,38 @@
             </li>
             @if(Auth::user()->is_admin ==1)
               <li class="nav-item">
-                <a class="nav-link" href="/nostalgicSoulEntertainment/admin/artists">
+                <a class="nav-link" href="{{ url('/admin/artists') }}">
                   <i class="menu-icon typcn typcn-document-text"></i>
                   <span class="menu-title">Artists</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/nostalgicSoulEntertainment/admin/genre">
+                <a class="nav-link" href="{{ url('/admin/genre') }}">
                   <i class="menu-icon typcn typcn-document-text"></i>
                   <span class="menu-title">Genre</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/nostalgicSoulEntertainment/admin/albums">
+                <a class="nav-link" href="{{ url('/admin/albums') }}">
                   <i class="menu-icon typcn typcn-document-text"></i>
                   <span class="menu-title">Albums</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/nostalgicSoulEntertainment/admin/vedios">
+                <a class="nav-link" href="{{ url('/admin/vedios') }}">
                   <i class="menu-icon typcn typcn-document-text"></i>
                   <span class="menu-title">Vedios</span>
                 </a>
               </li>
             @else
               <li class="nav-item">
-                <a class="nav-link" href="/nostalgicSoulEntertainment/history">
+                <a class="nav-link" href="{{ url('/history') }}">
                   <i class="menu-icon typcn typcn-document-text"></i>
                   <span class="menu-title">History</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/nostalgicSoulEntertainment/savedlist">
+                <a class="nav-link"  href="{{ url('/savedlist') }}">
                   <i class="menu-icon typcn typcn-document-text"></i>
                   <span class="menu-title">Saved List</span>
                 </a>

@@ -57,7 +57,7 @@
                                            </div>
                                            <div class="col-md-6 pt-2">
                                                <figure class="avatar-md float-left  mr-3 mt-1">
-                                                   <img class="r-3" src="assets/img/demo/a1.jpg" alt="">
+                                                   <img class="r-3" src="{{ asset('public/assets/img/demo/a1.jpg')}}" alt="">
                                                </figure>
                                                <h6>Dance with me tonight</h6>Joe Doe
                                            </div>
@@ -89,7 +89,7 @@
                                            </div>
                                            <div class="col-md-6 pt-2">
                                                <figure class="avatar-md float-left  mr-3 mt-1">
-                                                   <img class="r-3" src="assets/img/demo/a2.jpg" alt="">
+                                                   <img class="r-3" src="{{ asset('public/assets/img/demo/a2.jpg')}}" alt="">
                                                </figure>
                                                <h6>Dance with me tonight</h6>Joe Doe
                                            </div>
@@ -121,7 +121,7 @@
                                            </div>
                                            <div class="col-md-6 pt-2">
                                                <figure class="avatar-md float-left  mr-3 mt-1">
-                                                   <img class="r-3" src="assets/img/demo/a3.jpg" alt="">
+                                                   <img class="r-3" src="{{ asset('public/assets/img/demo/a3.jpg')}}" alt="">
                                                </figure>
                                                <h6>Dance with me tonight</h6>Joe Doe
                                            </div>
@@ -153,7 +153,7 @@
                                            </div>
                                            <div class="col-md-6 pt-2">
                                                <figure class="avatar-md float-left  mr-3 mt-1">
-                                                   <img class="r-3" src="assets/img/demo/a4.jpg" alt="">
+                                                   <img class="r-3" src="{{ asset('public/assets/img/demo/a4.jpg')}}" alt="">
                                                </figure>
                                                <h6>Dance with me tonight</h6>Joe Doe
                                            </div>
@@ -185,7 +185,7 @@
                                            </div>
                                            <div class="col-md-6 pt-2">
                                                <figure class="avatar-md float-left  mr-3 mt-1">
-                                                   <img class="r-3" src="assets/img/demo/a5.jpg" alt="">
+                                                   <img class="r-3" src="{{ asset('public/assets/img/demo/a5.jpg')}}" alt="">
                                                </figure>
                                                <h6>Dance with me tonight</h6>Joe Doe
                                            </div>
@@ -217,7 +217,7 @@
                                            </div>
                                            <div class="col-md-6 pt-2">
                                                <figure class="avatar-md float-left  mr-3 mt-1">
-                                                   <img class="r-3" src="assets/img/demo/a8.jpg" alt="">
+                                                   <img class="r-3" src="{{ asset('public/assets/img/demo/a8.jpg')}}" alt="">
                                                </figure>
                                                <h6>Dance with me tonight</h6>Joe Doe
                                            </div>
@@ -248,7 +248,7 @@
                                         <div class="col-md-3 mb-3">
                                             <figure class="mb-2">
                                                 <div class="img-wrapper r-10">
-                                                    <img class=" r-10" src="assets/img/demo/a7.jpg" alt="/">
+                                                    <img class=" r-10" src="{{ asset('public/assets/img/demo/a7.jpg')}}" alt="/">
                                                     <div class="img-overlay text-white p-5">
                                                         <div class="center-center">
                                                             <a class="no-ajaxy media-url" href="assets/media/track2.mp3" data-wave="assets/media/track2.json">
@@ -266,7 +266,7 @@
                                         <div class="col-md-3 mb-3">
                                             <figure class="mb-2">
                                                 <div class="img-wrapper r-10">
-                                                    <img class=" r-10" src="assets/img/demo/a6.jpg" alt="/">
+                                                    <img class=" r-10" src="{{ asset('public/assets/img/demo/a6.jpg')}}" alt="/">
                                                     <div class="img-overlay text-white p-5">
                                                         <div class="center-center">
                                                             <a class="no-ajaxy media-url" href="assets/media/track2.mp3" data-wave="assets/media/track2.json">
@@ -284,7 +284,7 @@
                                         <div class="col-md-3 mb-3">
                                             <figure class="mb-2">
                                                 <div class="img-wrapper r-10">
-                                                    <img class=" r-10" src="assets/img/demo/a5.jpg" alt="/">
+                                                    <img class=" r-10" src="{{ asset('public/assets/img/demo/a6.jpg')}}" alt="/">
                                                     <div class="img-overlay text-white p-5">
                                                         <div class="center-center">
                                                             <a class="no-ajaxy media-url" href="assets/media/track2.mp3" data-wave="assets/media/track2.json">
@@ -302,7 +302,7 @@
                                         <div class="col-md-3 mb-3">
                                             <figure class="mb-2">
                                                 <div class="img-wrapper r-10">
-                                                    <img class=" r-10" src="assets/img/demo/a4.jpg" alt="/">
+                                                    <img class=" r-10" src="{{ asset('public/assets/img/demo/a4.jpg')}}" alt="/">
                                                     <div class="img-overlay text-white p-5">
                                                         <div class="center-center">
                                                             <a class="no-ajaxy media-url" href="assets/media/track2.mp3" data-wave="assets/media/track2.json">
@@ -322,7 +322,7 @@
                                         <div class="col-md-3 mb-3">
                                             <figure class="mb-2">
                                                 <div class="img-wrapper r-10">
-                                                    <img class=" r-10" src="assets/img/demo/a3.jpg" alt="/">
+                                                    <img class=" r-10" src="{{ asset('public/assets/img/demo/a3.jpg')}}" alt="/">
                                                     <div class="img-overlay text-white p-5">
                                                         <div class="center-center">
                                                             <a class="no-ajaxy media-url" href="assets/media/track2.mp3" data-wave="assets/media/track2.json">
@@ -340,7 +340,7 @@
                                         <div class="col-md-3 mb-3">
                                             <figure class="mb-2">
                                                 <div class="img-wrapper r-10">
-                                                    <img class=" r-10" src="assets/img/demo/a2.jpg" alt="/">
+                                                    <img class=" r-10" src="{{ asset('public/assets/img/demo/a2.jpg')}}" alt="/">
                                                     <div class="img-overlay text-white p-5">
                                                         <div class="center-center">
                                                             <a class="no-ajaxy media-url" href="assets/media/track2.mp3" data-wave="assets/media/track2.json">
@@ -358,7 +358,7 @@
                                         <div class="col-md-3 mb-3">
                                             <figure class="mb-2">
                                                 <div class="img-wrapper r-10">
-                                                    <img class=" r-10" src="assets/img/demo/a1.jpg" alt="/">
+                                                    <img class=" r-10" src="{{ asset('public/assets/img/demo/a1.jpg')}}" alt="/">
                                                     <div class="img-overlay text-white p-5">
                                                         <div class="center-center">
                                                             <a class="no-ajaxy media-url" href="assets/media/track2.mp3" data-wave="assets/media/track2.json">
@@ -376,7 +376,7 @@
                                         <div class="col-md-3 mb-3">
                                             <figure class="mb-2">
                                                 <div class="img-wrapper r-10">
-                                                    <img class=" r-10" src="assets/img/demo/a8.jpg" alt="/">
+                                                    <img class=" r-10" src="{{ asset('public/assets/img/demo/a8.jpg')}}" alt="/">
                                                     <div class="img-overlay text-white p-5">
                                                         <div class="center-center">
                                                             <a class="no-ajaxy media-url" href="assets/media/track2.mp3" data-wave="assets/media/track2.json">

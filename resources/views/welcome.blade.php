@@ -98,7 +98,7 @@
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="dolor">
-                                <img  src="assets/img/demo/Cecil-Jones-Photo.JPG" alt="b22" width="250px">
+                                <img src="{{ asset('public/assets/img/demo/Cecil-Jones-Photo.JPG')}}" alt="b22" width="250px">
                             </div>
                         </div>
                         
@@ -422,7 +422,7 @@
                     <div class="card">
                         <figure class="card-img figure">
                             <div class="img-wrapper">
-                                <img src="assets/img/demo/v51.jpg" alt="Card image">
+                                <img src="{{ asset('public/assets/img/demo/v51.jpg')}}" alt="Card image">
                             </div>
                             <div class="img-overlay"></div>
                             <!--<div class="has-bottom-gradient">-->
@@ -448,7 +448,7 @@
                     <div class="card">
                         <figure class="card-img figure">
                             <div class="img-wrapper">
-                                <img src="assets/img/demo/v81.jpg" alt="Card image">
+                                <img src="{{ asset('public/assets/img/demo/v81.jpg')}}" alt="Card image">
                             </div>
                             <div class="img-overlay text-white">
                                 <div class="figcaption">
@@ -478,7 +478,7 @@
                     <div class="card">
                         <figure class="card-img figure">
                             <div class="img-wrapper">
-                                <img src="assets/img/demo/v11.jpg" alt="Card image" class="same-size-img">
+                                <img src="{{ asset('public/assets/img/demo/v11.jpg')}}" alt="Card image" class="same-size-img">
                             </div>
                             <div class="img-overlay text-white">
                                 <div class="figcaption">
@@ -508,7 +508,7 @@
                     <div class="card">
                         <figure class="card-img figure">
                             <div class="img-wrapper">
-                                <img src="assets/img/demo/v9 (1).jpg" alt="Card image" class="same-size-img">
+                                <img src="{{ asset('public/assets/img/demo/v9 (1).jpg')}}" alt="Card image" class="same-size-img">
                             </div>
                             <div class="img-overlay text-white">
                                 <div class="figcaption">
@@ -608,7 +608,7 @@
                                                    </div>
                                                    <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
-                                                           <img class="r-3" src="assets/img/demo/a1.jpg" alt="">
+                                                           <img class="r-3" src="{{ asset('public/assets/img/demo/a1.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
                                                    </div>
@@ -640,7 +640,7 @@
                                                    </div>
                                                    <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
-                                                           <img class="r-3" src="assets/img/demo/a2.jpg" alt="">
+                                                           <img class="r-3" src="{{ asset('public/assets/img/demo/a2.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
                                                    </div>
@@ -672,7 +672,7 @@
                                                    </div>
                                                    <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
-                                                           <img class="r-3" src="assets/img/demo/a3.jpg" alt="">
+                                                           <img class="r-3" src="{{ asset('public/assets/img/demo/a3.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
                                                    </div>
@@ -704,7 +704,7 @@
                                                    </div>
                                                    <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
-                                                           <img class="r-3" src="assets/img/demo/a4.jpg" alt="">
+                                                           <img class="r-3" src="{{ asset('public/assets/img/demo/a4.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
                                                    </div>
@@ -736,7 +736,7 @@
                                                    </div>
                                                    <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
-                                                           <img class="r-3" src="assets/img/demo/a5.jpg" alt="">
+                                                           <img class="r-3" src="{{ asset('public/assets/img/demo/a5.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
                                                    </div>
@@ -768,7 +768,7 @@
                                                    </div>
                                                    <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
-                                                           <img class="r-3" src="assets/img/demo/a8.jpg" alt="">
+                                                           <img class="r-3" src="{{ asset('public/assets/img/demo/a8.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
                                                    </div>
@@ -800,8 +800,7 @@
                                                 <div class="col-md-3 mb-3">
                                                     <figure class="mb-2">
                                                         <div class="img-wrapper r-10">
-                                                            <img class=" r-10" src="assets/img/demo/a7.jpg"
-                                                                 alt="/">
+                                                            <img class=" r-10" src="{{ asset('public/assets/img/demo/a7.jpg')}}" alt="/">
                                                             <div class="img-overlay text-white p-5">
                                                                 <div class="center-center">
                                                                     <a class="no-ajaxy media-url"
@@ -820,8 +819,7 @@
                                                 <div class="col-md-3 mb-3">
                                                     <figure class="mb-2">
                                                         <div class="img-wrapper r-10">
-                                                            <img class=" r-10" src="assets/img/demo/a6.jpg"
-                                                                 alt="/">
+                                                            <img class=" r-10" src="{{ asset('public/assets/img/demo/a6.jpg')}}" alt="/">
                                                             <div class="img-overlay text-white p-5">
                                                                 <div class="center-center">
                                                                     <a class="no-ajaxy media-url"
@@ -840,8 +838,7 @@
                                                 <div class="col-md-3 mb-3">
                                                     <figure class="mb-2">
                                                         <div class="img-wrapper r-10">
-                                                            <img class=" r-10" src="assets/img/demo/a5.jpg"
-                                                                 alt="/">
+                                                            <img class=" r-10" src="{{ asset('public/assets/img/demo/a5.jpg')}}" alt="/">
                                                             <div class="img-overlay text-white p-5">
                                                                 <div class="center-center">
                                                                     <a class="no-ajaxy media-url"
@@ -860,8 +857,7 @@
                                                 <div class="col-md-3 mb-3">
                                                     <figure class="mb-2">
                                                         <div class="img-wrapper r-10">
-                                                            <img class=" r-10" src="assets/img/demo/a4.jpg"
-                                                                 alt="/">
+                                                            <img class=" r-10" src="{{ asset('public/assets/img/demo/a4.jpg')}}" alt="/">
                                                             <div class="img-overlay text-white p-5">
                                                                 <div class="center-center">
                                                                     <a class="no-ajaxy media-url"
@@ -882,8 +878,7 @@
                                                 <div class="col-md-3 mb-3">
                                                     <figure class="mb-2">
                                                         <div class="img-wrapper r-10">
-                                                            <img class=" r-10" src="assets/img/demo/a3.jpg"
-                                                                 alt="/">
+                                                            <img class=" r-10" src="{{ asset('public/assets/img/demo/a3.jpg')}}" alt="/">
                                                             <div class="img-overlay text-white p-5">
                                                                 <div class="center-center">
                                                                     <a class="no-ajaxy media-url"
@@ -902,8 +897,7 @@
                                                 <div class="col-md-3 mb-3">
                                                     <figure class="mb-2">
                                                         <div class="img-wrapper r-10">
-                                                            <img class=" r-10" src="assets/img/demo/a2.jpg"
-                                                                 alt="/">
+                                                            <img class=" r-10" src="{{ asset('public/assets/img/demo/a2.jpg')}}" alt="/">
                                                             <div class="img-overlay text-white p-5">
                                                                 <div class="center-center">
                                                                     <a class="no-ajaxy media-url"
@@ -922,8 +916,7 @@
                                                 <div class="col-md-3 mb-3">
                                                     <figure class="mb-2">
                                                         <div class="img-wrapper r-10">
-                                                            <img class=" r-10" src="assets/img/demo/a1.jpg"
-                                                                 alt="/">
+                                                            <img class=" r-10" src="{{ asset('public/assets/img/demo/a1.jpg')}}" alt="/">
                                                             <div class="img-overlay text-white p-5">
                                                                 <div class="center-center">
                                                                     <a class="no-ajaxy media-url"
@@ -942,8 +935,7 @@
                                                 <div class="col-md-3 mb-3">
                                                     <figure class="mb-2">
                                                         <div class="img-wrapper r-10">
-                                                            <img class=" r-10" src="assets/img/demo/a8.jpg"
-                                                                 alt="/">
+                                                            <img class=" r-10" src="{{ asset('public/assets/img/demo/a8.jpg')}}" alt="/">
                                                             <div class="img-overlay text-white p-5">
                                                                 <div class="center-center">
                                                                     <a class="no-ajaxy media-url"
@@ -992,11 +984,11 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="avatar-group">
                                     <figure class="avatar no-shadow">
-                                        <img src="assets/img/demo/u4.jpg" alt=""></figure>
+                                        <img src="{{ asset('public/assets/img/demo/u4.jpg')}}" alt=""></figure>
                                     <figure class="avatar no-shadow">
-                                        <img src="assets/img/demo/u5.jpg" alt=""></figure>
+                                        <img src="{{ asset('public/assets/img/demo/u5.jpg')}}" alt=""></figure>
                                     <figure class="avatar no-shadow">
-                                        <img src="assets/img/demo/u6.jpg" alt=""></figure>
+                                        <img src="{{ asset('public/assets/img/demo/u6.jpg')}}" alt=""></figure>
                                 </div>
                                 <div>
                                     <!-- <a href="events-single.html">Buy Tickets</a> -->
@@ -1026,11 +1018,11 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="avatar-group">
                                     <figure class="avatar no-shadow">
-                                        <img src="assets/img/demo/u4.jpg" alt=""></figure>
+                                        <img src="{{ asset('public/assets/img/demo/u4.jpg')}}" alt=""></figure>
                                     <figure class="avatar no-shadow">
-                                        <img src="assets/img/demo/u5.jpg" alt=""></figure>
+                                        <img src="{{ asset('public/assets/img/demo/u5.jpg')}}" alt=""></figure>
                                     <figure class="avatar no-shadow">
-                                        <img src="assets/img/demo/u6.jpg" alt=""></figure>
+                                        <img src="{{ asset('public/assets/img/demo/u6.jpg')}}" alt=""></figure>
                                 </div>
                                 <div>
                                     <!-- <a href="events-single.html">Buy Tickets</a> -->
@@ -1040,7 +1032,7 @@
                         <div class="mb-3 card">
                             <figure class="card-img figure">
                                 <div class="img-wrapper">
-                                    <img class="r-3" src="assets/img/demo/v11.jpg" alt="Card image">
+                                    <img class="r-3" src="{{ asset('public/assets/img/demo/v11.jpg')}}" alt="Card image">
                                 </div>
                                 <div class="img-overlay text-white">
                                     <div class="figcaption">

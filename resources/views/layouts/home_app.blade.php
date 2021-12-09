@@ -115,11 +115,38 @@
                     <div class="contact">
                         <h2 class="footer-title">Quick Links</h2>
                            <ul class="quick-links">
-                               <li class="links-li"><i class="fa fa-angle-double-right"></i>Home</li>
-                               <li class="links-li"><i class="fa fa-angle-double-right"></i>About</li>
-                               <li class="links-li"><i class="fa fa-angle-double-right"></i>Artist</li>
-                               <li class="links-li"><i class="fa fa-angle-double-right"></i>Albums</li>
-                               <li class="links-li"><i class="fa fa-angle-double-right"></i>Videos</li>
+                               
+                               <li class="links-li">
+                               <a href="{{ url('/') }}">
+                                <i class="fa fa-angle-double-right"></i>Home
+                                </a>
+                            </li>
+
+                               <li class="links-li">
+                               <a href="{{ url('about') }}"> 
+                                <i class="fa fa-angle-double-right"></i>About
+                               </a>
+                            </li>
+
+                               <li class="links-li">
+                               <a href="{{ url('artists') }}">    
+                              <i class="fa fa-angle-double-right">
+                               </i>Artist
+                               </a>
+                               </li>
+
+                               <li class="links-li">
+                               <a href="{{ url('albums') }}"> 
+                               <i class="fa fa-angle-double-right">
+                               </i>Albums
+                               </a>   
+                            </li>
+
+                               <li class="links-li">
+                               <a href="{{ url('videos') }}"> 
+                                <i class="fa fa-angle-double-right"></i>Videos
+                               </a>
+                            </li>
                            </ul> 
                     </div>
                 </div>
