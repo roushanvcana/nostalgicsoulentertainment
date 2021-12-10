@@ -212,14 +212,14 @@
         position: relative;
 
         &:before {
-          content: "";
+           content: "";
           position: absolute;
           left: 30px;
           right: 50%;
           width: 10px;
           height: 10px;
           border-radius: 100%;
-          border: 2px solid $sidebar-nav-item-dot-color;
+           border: 2px solid $sidebar-nav-item-dot-color;
           display: block;
         }
       }

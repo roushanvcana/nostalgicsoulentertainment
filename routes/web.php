@@ -49,4 +49,6 @@ Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.hom
 
 //Route::get('/admin/albums/{id}', [AlbumsController::class, 'show']);
 
+Route::get('/admin/artist', [ArtistsController::class, 'index']);
+
 Route::resource('admin/albums/', AlbumsController::class)->middleware('is_admin');

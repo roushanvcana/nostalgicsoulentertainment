@@ -37,7 +37,7 @@ class ArtistsController extends Controller
         public function index()
         {
             // get all the albums 
-            
+            return view('admin/artistlist');
         }
     
         /**

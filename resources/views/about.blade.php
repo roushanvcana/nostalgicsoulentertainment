@@ -102,7 +102,7 @@
                              data-pager="false"
                              data-controls="true"
                              data-loop="true">
-                            <div>
+                            <div>  
                                 <figure>
                                     <div class="w-50 text-center">
                                         <figure class="mt-1">

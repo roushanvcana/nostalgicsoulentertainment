@@ -23,6 +23,7 @@
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('dashboard_assets/css/shared/style.css')}}">
     <!-- endinject -->
     <!-- Layout styles -->
@@ -238,45 +239,45 @@
             <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
               <a class="nav-link" href="/nostalgicSoulEntertainment/admin/home">
-                <i class="menu-icon typcn typcn-document-text"></i>
+              <!-- <i class="bi bi-house-fill"></i> -->
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
             @if(Auth::user()->is_admin ==1)
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/admin/artists') }}">
-                  <i class="menu-icon typcn typcn-document-text"></i>
+                <a class="nav-link" href="{{ url('/admin/artist') }}">
+                  <!-- <i class="menu-icon typcn typcn-document-text"></i> -->
                   <span class="menu-title">Artists</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('/admin/genre') }}">
-                  <i class="menu-icon typcn typcn-document-text"></i>
+                  <!-- <i class="menu-icon typcn typcn-document-text"></i> -->
                   <span class="menu-title">Genre</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('/admin/albums') }}">
-                  <i class="menu-icon typcn typcn-document-text"></i>
+                  <!-- <i class="menu-icon typcn typcn-document-text"></i> -->
                   <span class="menu-title">Albums</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('/admin/vedios') }}">
-                  <i class="menu-icon typcn typcn-document-text"></i>
-                  <span class="menu-title">Vedios</span>
+                  <!-- <i class="menu-icon typcn typcn-document-text"></i> -->
+                  <span class="menu-title">Videos</span>
                 </a>
               </li>
             @else
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('/history') }}">
-                  <i class="menu-icon typcn typcn-document-text"></i>
+                  <!-- <i class="menu-icon typcn typcn-document-text"></i> -->
                   <span class="menu-title">History</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link"  href="{{ url('/savedlist') }}">
-                  <i class="menu-icon typcn typcn-document-text"></i>
+                  <!-- <i class="menu-icon typcn typcn-document-text"></i> -->
                   <span class="menu-title">Saved List</span>
                 </a>
               </li>
