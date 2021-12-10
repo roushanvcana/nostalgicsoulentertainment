@@ -14,12 +14,17 @@
         <div class="page-header">
           <h4 class="page-title">Albums</h4>
         </div>
+        <div class="btn-group" style="float: right;">
+            <button type="button" class="btn btn-info" style="background: #45219b;">
+            <a href="{{ URL::to('admin/albums') }}" style="color: #FFFFFF;">View All Albums</a>
+              </button>
+            </div>
         <nav class="navbar navbar-inverse">
             {{-- <div class="navbar-header">
                 <a class="navbar-brand" href="{{ URL::to('admin/albums') }}">shark Alert</a>
             </div> --}}
             <ul class="nav navbar-nav">
-                <li><a href="{{ URL::to('admin/albums') }}">View All Albums</a></li>
+                <!-- <li><a href="{{ URL::to('admin/albums') }}">View All Albums</a></li> -->
                 {{-- <li><a href="{{ URL::to('admin/albums/create') }}">Create a new album</a> --}}
             </ul>
         </nav>
@@ -32,8 +37,9 @@
    
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-            
+        <div class="col-md-12">
+            <div class="card" style="width: 80%;">
+           <div class="card-body">
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -114,8 +120,11 @@
                 
             </div> 
         </div>
-    </div>
+        </div>
+        </div>
+       </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 

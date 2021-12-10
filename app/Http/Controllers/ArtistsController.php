@@ -18,7 +18,8 @@ class ArtistsController extends Controller
     public function artists()
     {
         // get all the artist
-        //$artists = artists::all();
+        $artists = artists::all();
+        
         $artistsID = 2;
         $artists = artists::find($artistsID);
         
@@ -36,8 +37,31 @@ class ArtistsController extends Controller
         */
         public function index()
         {
+        
+                // get all the albums 
+                $data = artists::addSelect(['music_categories_id' => music_categories::select('artist_name')->whereColumn('id', 'music_categories_id')])->get();
+    
+                if($data){
+    
+                    foreach($data as $artist)
+                    {
+                        $tracks = artists::select(DB::raw('count(*) as tracksCount, music_categories_id'))->where('music_categories_id', $artist->id)->groupBy('music_categories_id')->first();
+                        if($tracks)
+                        {
+                            $artist['tracksCount']=$tracks->tracksCount;
+                            // echo $tracks->albums_id;
+                        }
+                        else{
+                            $artist['tracksCount']=0;
+                        }
+                    } 
+                }
+               
+                // load the view and pass the data
+                return view('admin.artistlist', ['data'=>$data]);
+        
             // get all the albums 
-            return view('admin/artistlist');
+           // return view('admin/artistlist');
         }
     
         /**
@@ -54,7 +78,7 @@ class ArtistsController extends Controller
             * Store a newly created resource in storage.
             *
             * @return Response
-            */
+            */    
         public function store(Request $request)
         {
 

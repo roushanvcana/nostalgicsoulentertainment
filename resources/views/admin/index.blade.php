@@ -14,11 +14,16 @@
         <div class="page-header">
           <h4 class="page-title">Albums</h4>
         </div>
-        <nav class="navbar navbar-inverse">
+        <div class="btn-group" style="float: right;">
+            <button type="button" class="btn btn-info" style="background: #45219b;">
+            <a href="{{ URL::to('admin/albums/create') }}" style="color: #FFFFFF;">Create a new Album</a>
+              </button>
+            </div>
+        <!-- <nav class="navbar navbar-inverse">
             <ul class="nav navbar-nav">
                 <li><a href="{{ URL::to('admin/albums/create') }}">Create a new album</a>
             </ul>
-        </nav>
+        </nav> -->
       </div>
       
     
@@ -52,11 +57,17 @@
                     <td>{{ $value->created_at}}</td>
                     
                     <td>
-                        <a class="btn btn-small btn-success" href="{{ URL::to('albums/' . $value->id.'/tracks/create') }}">Add Track</a>
-        
+                     <button type="button" class="btn btn-small btn-success" data-toggle="modal" data-target="#album-modal">
+                         Add Track
+                      </button>
+                        <!-- <a class="btn btn-small btn-success" href="{{ URL::to('albums/' . $value->id.'/tracks/create') }}">Add Track</a> -->
+                       
                         <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->
-                        <a class="btn btn-small btn-info" href="{{ URL::to('albums/' . $value->id . '/edit') }}">Edit</a>
-                        <a class="btn btn-small btn-danger" href="{{ URL::to('albums/' . $value->id . '/edit') }}">Delete</a>
+                        <button type="button" class="btn btn-small btn-info" data-toggle="modal" data-target="#edit-album">
+                         Edit
+                        </button>
+                        <!-- <a class="btn btn-small btn-info" href="{{ URL::to('albums/' . $value->id . '/edit') }}">Edit</a> -->
+                        <a class="btn btn-small btn-danger" href="#">Delete</a>
         
                     </td>
                 </tr>
@@ -66,5 +77,110 @@
         </div>
         </div>
     </div>
+
+    <div class="modal fade" id="album-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="display:inline-block;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title"><b>Add Track</b></h4>
+      </div>
+
+      <div class="modal-body">
+        <form role="form" action="">
+          <input type="hidden" name="_token" value="">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="">Album Name</label> 
+              <input type="text" class="form-control" name="album_name" placeholder="Album Name" >
+            </div>
+           
+            <div class="form-group">
+              <label for="">Track</label> 
+              <input type="number" class="form-control" name="track" placeholder="Enter Track No.">
+            </div>
+
+            <div class="form-group">
+              <label for="">Artist Name</label> 
+              <input type="text" class="form-control" name="artist_name" placeholder="Artist Name">
+            </div>
+
+            <!-- <div class="form-group">
+              <label for="">Created At</label> 
+              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="created_at">
+               <input type="text" class="form-control" name="created-at" placeholder="Created At"> 
+            </div> -->
+            
+            <!-- <div class="form-group">
+              <label for="">Updated At</label> 
+              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="updated_at">
+               <input type="text" class="form-control" name="updated_at" placeholder="Updated At"> 
+            </div> -->
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="edit-album">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="display:inline-block;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title"><b>Edit Track Details</b></h4>
+      </div>
+
+      <div class="modal-body">
+        <form role="form" action="">
+          <input type="hidden" name="_token" value="">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="">Album Name</label> 
+              <input type="text" class="form-control" name="album_name" placeholder="Album Name" >
+            </div>
+           
+            <div class="form-group">
+              <label for="">Track</label> 
+              <input type="number" class="form-control" name="track" placeholder="Enter Track No.">
+            </div>
+
+            <div class="form-group">
+              <label for="">Artist Name</label> 
+              <input type="text" class="form-control" name="artist_name" placeholder="Artist Name">
+            </div>
+
+            <!-- <div class="form-group">
+              <label for="">Created At</label> 
+              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="created_at">
+               <input type="text" class="form-control" name="created-at" placeholder="Created At"> 
+            </div> -->
+            
+            <!-- <div class="form-group">
+              <label for="">Updated At</label> 
+              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="updated_at">
+               <input type="text" class="form-control" name="updated_at" placeholder="Updated At"> 
+            </div> -->
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 @endsection

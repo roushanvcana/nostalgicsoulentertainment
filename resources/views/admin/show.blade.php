@@ -73,7 +73,8 @@
                         @foreach($data[0]['tracksLists'] as $key => $value)
                         <tr>
                             <!-- show the album (uses the show method found at GET /album/{id} -->
-                            <td><a href="{{ URL::to('admin/albums/' . $value->id) }}"><img src="{{ $value->track_pic}}" alt="/"> {{ $value->track_name}}</a></td>
+                            <td><a href="{{ URL::to('admin/albums/' . $value->id) }}">
+                            <img src="{{ $value->track_pic}}" alt="/"> {{ $value->track_name}}</a></td>
                             <td class="text-primary"> {{ $value->artists_id }}</td>
                             <td>{{ $value->track_time}}</td>
                             

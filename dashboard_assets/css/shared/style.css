@@ -4398,7 +4398,7 @@ a.close.disabled {
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px); }
   .modal-header .close {
-    padding: 1rem 1rem;
+    padding: 2rem 2rem;
     margin: -25px -26px -25px auto; }
 
 .modal-title {

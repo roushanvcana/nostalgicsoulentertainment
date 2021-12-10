@@ -20,7 +20,7 @@
             </ul> -->
 
             <div class="btn-group" style="float: right;">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal" style="background: #5768f3;">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal" style="background: #45219b;">
                Add Artist
               </button>
             </div>
@@ -45,13 +45,38 @@
                     <th>Description</th>
                     <th>Created At</th>
                     <th>Updated At</th>
-                  
+                    <th>Action</th>
                 </tr>
             </thead>
+            
             <tbody>
-              
-          
-
+                @foreach($data as $key => $value)
+                <tr>
+                    <!-- show the album (uses the show method found at GET /album/{id} -->
+                    <td> {{ $value->artist_name}} </td>
+                    <td>
+                    <a href="{{ URL::to('admin/artist/' . $value->id) }}">
+                    <img src="{{ $value->artist_pic}}" alt="/"></a>
+                    </td>
+                     <td>{{ $value->description }}</td> 
+                     <!-- <td></td> -->
+                    <td>{{ $value->created_at}}</td>
+                    <td>{{ $value->updated_at}}</td>
+                    
+                    <td>
+                        <!-- <a class="btn btn-small btn-success" href="{{ URL::to('artist/' . $value->id.'/tracks/create') }}">Add Track</a> -->
+        
+                        <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->
+                        <button type="button" class="btn btn-small btn-info" data-toggle="modal" data-target="#modal-edit">
+                         Edit
+                        </button>
+                        <!-- <a class="btn btn-small btn-info" href="{{ URL::to('artist/' . $value->id . '/edit') }}">Edit</a> -->
+                        <a class="btn btn-small btn-danger" href="#">Delete</a>
+        
+                    </td>
+                    
+                </tr>
+                @endforeach
             </tbody>
             </table>
         </div>
@@ -84,16 +109,76 @@
             </div>
             <div class="form-group">
               <label for="">Description</label> 
-              <input type="text" class="form-control" name="description" placeholder="Enter Description">
+           <textarea id="description" placeholder="Enter Description" name="description" class="form-control"></textarea>
+                      
+              <!-- <input type="text" class="form-control" name="description" placeholder="Enter Description"> -->
             </div>
-            <div class="form-group">
+
+            <!-- <div class="form-group">
               <label for="">Created At</label> 
-              <input type="text" class="form-control" name="created-at" placeholder="Created At">
+              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="created_at">
+               <input type="text" class="form-control" name="created-at" placeholder="Created At"> 
+            </div> -->
+            
+            <!-- <div class="form-group">
+              <label for="">Updated At</label> 
+              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="updated_at">
+               <input type="text" class="form-control" name="updated_at" placeholder="Updated At"> 
+            </div> -->
+
+          </div>
+          <div class="modal-footer">
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal-edit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="display:inline-block;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title"><b>Edit Details</b></h4>
+      </div>
+
+      <div class="modal-body">
+        <form role="form" action="">
+          <input type="hidden" name="_token" value="">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="">Artist Name</label> 
+              <input type="text" class="form-control" name="artist_name" placeholder="Artist Name" >
             </div>
             <div class="form-group">
-              <label for="">Updated At</label> 
-              <input type="text" class="form-control" name="updated_at" placeholder="Updated At">
+              <label for="">Artist Pic</label> 
+              <input type="file" class="form-control" name="image" onchange="" >
+              <!-- <input type="text" class="form-control" name="username" placeholder="Artist Pic"> -->
             </div>
+            <div class="form-group">
+              <label for="">Description</label> 
+              <textarea id="description" placeholder="Enter Description" name="description" class="form-control"></textarea>
+            </div>
+
+            <!-- <div class="form-group">
+              <label for="">Created At</label> 
+              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="created_at">
+               <input type="text" class="form-control" name="created-at" placeholder="Created At"> 
+            </div> -->
+            
+            <!-- <div class="form-group">
+              <label for="">Updated At</label> 
+              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="updated_at">
+               <input type="text" class="form-control" name="updated_at" placeholder="Updated At"> 
+            </div> -->
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
@@ -104,5 +189,6 @@
     </div>
   </div>
 </div>
+
 </div>
 @endsection
