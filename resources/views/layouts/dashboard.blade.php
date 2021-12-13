@@ -59,7 +59,7 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-          <a class="navbar-brand brand-logo" href="/admin/home">
+          <a class="navbar-brand brand-logo" href="{{ url('/admin/home') }}">
             {{-- <img src="{{ asset('assets/images/logo-white.png')}}" alt="logo" /> --}}
             <span style="color:#FF1744; font-size:.8em">Nostalgic Soul Entertainment</span>
           </a>
@@ -238,7 +238,7 @@
             
             <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
-              <a class="nav-link" href="/nostalgicSoulEntertainment/admin/home">
+              <a class="nav-link" href="{{ url('/admin/home') }}">
               <!-- <i class="bi bi-house-fill"></i> -->
                 <span class="menu-title">Dashboard</span>
               </a>
@@ -262,12 +262,14 @@
                   <span class="menu-title">Albums</span>
                 </a>
               </li>
-              <li class="nav-item">
+
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="{{ url('/admin/vedios') }}">
-                  <!-- <i class="menu-icon typcn typcn-document-text"></i> -->
+                   <i class="menu-icon typcn typcn-document-text"></i> 
                   <span class="menu-title">Videos</span>
                 </a>
-              </li>
+              </li> -->
+
             @else
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('/history') }}">

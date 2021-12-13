@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\albums;
 use App\Models\tracks;
 use App\Models\artists;
+use Illuminate\Support\Facades\DB;
 
 class TracksController extends Controller
 {
@@ -30,6 +31,7 @@ class TracksController extends Controller
           $track_lists= tracks::where('artists_id',$id)->get();
           $album= albums::where('artists_id',$id)->get();
           $artist = artists::where('id',$id)->get();
+
         
             // load the view and pass the data
             return view('artist', ['track_lists'=>$track_lists, 'album'=> $album, 'artist'=> $artist]);
@@ -43,7 +45,30 @@ class TracksController extends Controller
         */
         public function index()
         {
-            
+           
+              // get all the albums 
+              $data = tracks::addSelect(['artists_id' => tracks::select('track_name')->whereColumn('id', 'artists_id')])->get();
+    
+              if($data){
+  
+                  foreach($data as $artist)
+                  {
+                      $tracks = tracks::select(DB::raw('count(*) as tracksCount, artists_id'))->where('artists_id', $artist->id)->groupBy('artists_id')->first();
+                      if($tracks)
+                      {
+                          $artist['tracksCount']=$tracks->tracksCount;
+                          // echo $tracks->albums_id;
+                      }
+                      else{
+                          $artist['tracksCount']=0;
+                      }
+                  } 
+              }
+             
+              // load the view and pass the data
+              return view('admin.tracklist', ['data'=>$data]);
+
+           // return view('admin/tracklist');
         }
     
         /**

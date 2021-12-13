@@ -283,9 +283,12 @@
                 <li><!-- <a class="ajaxifyPage" href="albums.html"> -->
                     <a href="{{ url('albums') }}"><i class="icon icon-windows"></i><span>Albums</span></a>
                 </li>
-                 <li><!--<a class="ajaxifyPage" href="videos.html"> -->
+
+                <!--<a class="ajaxifyPage" href="videos.html"> -->
+                 <li>
                     <a href="{{ url('videos') }}"><i class="icon icon-video-player-2"></i><span>Videos</span></a>
                 </li>
+                
                 <li><!-- <a class="ajaxifyPage" href="events.html"> -->
                     <a href="{{ url('about') }}"><i class="fa fa-user"></i><span>About</span></a>
                 </li>

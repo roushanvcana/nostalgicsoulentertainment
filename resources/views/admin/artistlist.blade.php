@@ -50,7 +50,9 @@
             </thead>
             
             <tbody>
-                @foreach($data as $key => $value)
+             
+                @foreach($data['tracksCount'] as $key => $value)
+                <?php $alldata="$value->artist_name- $value->artist_pic-$value->description";?>
                 <tr>
                     <!-- show the album (uses the show method found at GET /album/{id} -->
                     <td> {{ $value->artist_name}} </td>
@@ -67,7 +69,7 @@
                         <!-- <a class="btn btn-small btn-success" href="{{ URL::to('artist/' . $value->id.'/tracks/create') }}">Add Track</a> -->
         
                         <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->
-                        <button type="button" class="btn btn-small btn-info" data-toggle="modal" data-target="#modal-edit">
+                        <button type="button" class="btn btn-small btn-info" onclick="editArtist('<?php echo $alldata;?>')">
                          Edit
                         </button>
                         <!-- <a class="btn btn-small btn-info" href="{{ URL::to('artist/' . $value->id . '/edit') }}">Edit</a> -->
@@ -95,12 +97,28 @@
       </div>
 
       <div class="modal-body">
-        <form role="form" action="">
-          <input type="hidden" name="_token" value="">
+        <form role="form" action="{{ url('artist-save')}}" method="POST">
+        @csrf
           <div class="box-body">
             <div class="form-group">
+              <label for="">Select Music</label> 
+              <select class="form-control" name="mcategory">
+                  <?php
+                    if(!is_null($data['music_category']))
+                    {
+                      foreach($data['music_category'] as $music)
+                      {
+                  ?>
+                  <option value="<?php echo $music->id;?>"><?php echo $music->category;?></option>
+                  <?php
+                      }
+                    }
+                  ?>
+              </select>
+            </div>
+            <div class="form-group">
               <label for="">Artist Name</label> 
-              <input type="text" class="form-control" name="artist_name" placeholder="Artist Name" >
+              <input type="text" class="form-control" name="artist_name" placeholder="Artist Name">
             </div>
             <div class="form-group">
               <label for="">Artist Pic</label> 
@@ -153,18 +171,35 @@
         <form role="form" action="">
           <input type="hidden" name="_token" value="">
           <div class="box-body">
+          <div class="form-group">
+              <label for="">Select Music</label> 
+              <select class="form-control" name="mcategory">
+                  <?php
+                    if(!is_null($data['music_category']))
+                    {
+                      foreach($data['music_category'] as $music)
+                      {
+                  ?>
+                  <option value="<?php echo $music->id;?>"><?php echo $music->category;?></option>
+                  <?php
+                      }
+                    }
+                  ?>
+              </select>
+            </div>
             <div class="form-group">
               <label for="">Artist Name</label> 
-              <input type="text" class="form-control" name="artist_name" placeholder="Artist Name" >
+              <input type="text" class="form-control" name="artist_name" id="artist_name" placeholder="Artist Name" >
             </div>
             <div class="form-group">
               <label for="">Artist Pic</label> 
-              <input type="file" class="form-control" name="image" onchange="" >
+              <input type="file" class="form-control" name="artist_pic" id="artist_pic" onchange="">
+              <img scr="" id="artist_image">
               <!-- <input type="text" class="form-control" name="username" placeholder="Artist Pic"> -->
             </div>
             <div class="form-group">
               <label for="">Description</label> 
-              <textarea id="description" placeholder="Enter Description" name="description" class="form-control"></textarea>
+              <textarea id="description_edit" placeholder="Enter Description" name="description" class="form-control" ></textarea>
             </div>
 
             <!-- <div class="form-group">
@@ -191,4 +226,19 @@
 </div>
 
 </div>
+<script>
+  function editArtist(data)
+  {
+    console.log(data)
+    $("#modal-edit").modal('show');
+    let showData = data;
+    const splitData = showData.split("-");
+    console.log(splitData);
+    $("#artist_name").val(splitData[0]);
+    $("#artist_image").attr("src",splitData[1])
+    //$("#artist_pic").val(splitData[1]);
+    $("#description_edit").html(splitData[2]);
+  
+  }
+</script>
 @endsection

@@ -25,6 +25,7 @@ Route::get('/', function () { return view('welcome'); });
 // Route::view('/albums', 'albums');
 // Route::view('/album', 'album');
 // Route::view('/genre', 'genre');
+Route::post('/artist-save', [ArtistsController::class, 'store']);
 Route::get('/genre', [MusicCategoriesController::class, 'genre'])->name('genre');
 Route::get('/albums', [AlbumsController::class, 'albums'])->name('albums');
 Route::get('/album/{id}',  [TracksController::class, 'album'])->name('album');
@@ -50,5 +51,9 @@ Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.hom
 //Route::get('/admin/albums/{id}', [AlbumsController::class, 'show']);
 
 Route::get('/admin/artist', [ArtistsController::class, 'index']);
+
+Route::get('/admin/genre', [TracksController::class, 'index']);
+
+
 
 Route::resource('admin/albums/', AlbumsController::class)->middleware('is_admin');

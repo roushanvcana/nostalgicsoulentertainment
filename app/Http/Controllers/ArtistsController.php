@@ -39,23 +39,9 @@ class ArtistsController extends Controller
         {
         
                 // get all the albums 
-                $data = artists::addSelect(['music_categories_id' => music_categories::select('artist_name')->whereColumn('id', 'music_categories_id')])->get();
+                $data['music_category']=music_categories::all();
+                $data['tracksCount']=artists::all();
     
-                if($data){
-    
-                    foreach($data as $artist)
-                    {
-                        $tracks = artists::select(DB::raw('count(*) as tracksCount, music_categories_id'))->where('music_categories_id', $artist->id)->groupBy('music_categories_id')->first();
-                        if($tracks)
-                        {
-                            $artist['tracksCount']=$tracks->tracksCount;
-                            // echo $tracks->albums_id;
-                        }
-                        else{
-                            $artist['tracksCount']=0;
-                        }
-                    } 
-                }
                
                 // load the view and pass the data
                 return view('admin.artistlist', ['data'=>$data]);
@@ -81,11 +67,32 @@ class ArtistsController extends Controller
             */    
         public function store(Request $request)
         {
+            if($request->hasFile('image'))
+            {
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();  
+            
+            // $request->image->move(public_path('images'), $imageName);
+            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
 
+            $artist_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+            }
+            else
+            $artist_pic =''; 
            // validate
-        
+
+           /*for edit
+           $artist=::artists where('id',$request->input('member_id'))->first();
+           */ 
+           $artist = new artists;
+           $artist->music_categories_id     = $request->mcategory;
+           $artist->artist_name     = $request->artist_name;
+           $artist->artist_pic      = $artist_pic;
+           $artist->id     = $request->id;
+           $artist->description = $request->description;
+           $artist->save();
            
-     
+           return redirect('/admin/artist')->with('Successfully Inserted', 'Data Saved');
         }
     
         /**
@@ -108,6 +115,7 @@ class ArtistsController extends Controller
             */
         public function edit($id)
         {
+            $artist= artists::where('id',$id)->first();
             //
         }
     
