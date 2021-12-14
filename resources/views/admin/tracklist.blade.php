@@ -100,7 +100,7 @@
       <div class="modal-body">
         <form role="form" action="">
           <input type="hidden" name="_token" value="">
-          <div class="box-body">
+          <div class="box-body">  
             <div class="form-group">
               <label for="">Artist Name</label> 
               <input type="text" class="form-control" name="artist_name" placeholder="Artist Name" >

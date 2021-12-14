@@ -251,9 +251,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/admin/genre') }}">
+                <a class="nav-link" href="{{ url('/admin/music-category') }}">
                   <!-- <i class="menu-icon typcn typcn-document-text"></i> -->
-                  <span class="menu-title">Genre</span>
+                  <span class="menu-title">Music Category</span>
                 </a>
               </li>
               <li class="nav-item">

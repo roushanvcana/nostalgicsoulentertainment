@@ -26,6 +26,17 @@ Route::get('/', function () { return view('welcome'); });
 // Route::view('/album', 'album');
 // Route::view('/genre', 'genre');
 Route::post('/artist-save', [ArtistsController::class, 'store']);
+Route::post('/artist-update', [ArtistsController::class, 'update']);
+Route::get('/artist-delete/{id}', [ArtistsController::class, 'destroy']);
+
+Route::post('/album-save', [AlbumsController::class, 'store']);
+Route::post('/album-update', [AlbumsController::class, 'update']);
+Route::get('/album-delete/{id}', [AlbumsController::class, 'destroy']);
+
+Route::post('/category-save', [MusicCategoriesController::class, 'store']);
+Route::post('/category-update', [MusicCategoriesController::class, 'update']);
+Route::get('/category-delete/{id}', [MusicCategoriesController::class, 'destroy']);
+
 Route::get('/genre', [MusicCategoriesController::class, 'genre'])->name('genre');
 Route::get('/albums', [AlbumsController::class, 'albums'])->name('albums');
 Route::get('/album/{id}',  [TracksController::class, 'album'])->name('album');
@@ -52,7 +63,7 @@ Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.hom
 
 Route::get('/admin/artist', [ArtistsController::class, 'index']);
 
-Route::get('/admin/genre', [TracksController::class, 'index']);
+Route::get('/admin/music-category', [MusicCategoriesController::class, 'index']);
 
 
 

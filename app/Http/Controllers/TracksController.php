@@ -29,7 +29,7 @@ class TracksController extends Controller
         public function artist($id)
         {
           $track_lists= tracks::where('artists_id',$id)->get();
-          $album= albums::where('artists_id',$id)->get();
+          $album= albums::where('artists_id',$id)->get();  
           $artist = artists::where('id',$id)->get();
 
         

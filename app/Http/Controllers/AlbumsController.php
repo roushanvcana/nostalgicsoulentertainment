@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class AlbumsController extends Controller
 {
     /**
-    * Display a listing of the resource.
+    * Display a listing of the resource.  
     *
     * @return Response
     */
@@ -71,37 +71,65 @@ class AlbumsController extends Controller
             */
         public function store(Request $request)
         {
-
-           // validate
-        
-           $validated = $request->validate([
-                'album_name'          => 'bail|required|unique:albums|max:255',
-                'artists_id'          => 'required',
-                'music_categories_id' => 'required',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'description'=>'required',
-                
-            ]);
-
-            $imageName = time().'.'.$request->image->extension();  
+            if($request->hasFile('image'))
+            {
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->extension();  
             
             // $request->image->move(public_path('images'), $imageName);
             $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
 
             $album_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+            }
+            else
+            $album_pic =''; 
+           // validate
 
-            $album = new albums;
-            $album->album_name     = $request->album_name;
-            $album->album_pic      = $album_pic;
-            $album->artists_id     = $request->artists_id;
-            $album->music_categories_id =  $request->music_categories_id;
-            $album->description = $request->description;
-            $album->save();
-
-            // redirect
-            return redirect('admin/albums')->with('success','You have successfully registered. Please login again.');;
-     
+           /*for edit
+           $artist=::artists where('id',$request->input('member_id'))->first();
+           */ 
+           $album = new albums;
+           $album->album_name     = $request->album_name;
+           $album->album_pic      = $album_pic;
+           $album->artists_id     = $request->artists_id;
+           $album->music_categories_id =  $request->music_categories_id;
+           $album->description = $request->description;
+           $album->save();
+           
+           return redirect('admin/albums')->with('success','You have successfully registered. Please login again.');;
         }
+        // {
+
+        //    // validate
+        
+        //    $validated = $request->validate([
+        //         'album_name'          => 'bail|required|unique:albums|max:255',
+        //         'artists_id'          => 'required',
+        //         'music_categories_id' => 'required',
+        //         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //         'description'=>'required',
+                
+        //     ]);
+
+        //     $imageName = time().'.'.$request->image->extension();  
+            
+        //     // $request->image->move(public_path('images'), $imageName);
+        //     $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
+
+        //     $album_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+
+        //     $album = new albums;
+        //     $album->album_name     = $request->album_name;
+        //     $album->album_pic      = $album_pic;
+        //     $album->artists_id     = $request->artists_id;
+        //     $album->music_categories_id =  $request->music_categories_id;
+        //     $album->description = $request->description;
+        //     $album->save();
+
+        //     // redirect
+        //     return redirect('admin/albums')->with('success','You have successfully registered. Please login again.');
+     
+        // }
     
         /**
             * Display the specified resource.

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 06, 2021 at 07:36 AM
--- Server version: 10.2.41-MariaDB
--- PHP Version: 7.3.33
+-- Host: 127.0.0.1
+-- Generation Time: Dec 14, 2021 at 01:39 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -62,7 +61,7 @@ CREATE TABLE `artists` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `artist_pic` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `artist_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `music_categories_id` bigint(20) NOT NULL,
+  `music_categories_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(3000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -73,13 +72,15 @@ CREATE TABLE `artists` (
 --
 
 INSERT INTO `artists` (`id`, `artist_pic`, `artist_name`, `music_categories_id`, `description`, `created_at`, `updated_at`) VALUES
-(2, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/Cecil-Jones-Photo2.JPG', 'Cecil Jones', 5, 'Cecil Eugene Jones Jr. was born in Chicago, Illinois on June 16, 1991. He is an Actor, Singer, Songwriter, and Model.\r\n\r\nHe grew up singing in church since he was the age of 5. His grandmother, Carolyn Bennett, is the main influence as to why he loves performing. \r\n\r\nShe saw in him as a toddler how much love and passion he had for entertainment. She encouraged, told him, and still tells him every day that he is “the best” at whatever he does and he always believed that.\r\n\r\nShe entered her grandson in every talent show and venue that she heard about that would get her grandson exposure. She was consistent in doing this throughout his high school years.\r\n\r\nIn 2010, he attended and graduated in 2014 from Manley Career Academy High School. At Manley, he graduated in the top of his class with a 3.5 GPA. \r\n                                        After Manley, He enrolled at Luther College in Decorah, Iowa where he furthered his education in communications, and performed in a number of talent shows and night clubs making a name for himself. Wanting to follow his dreams of being an entertainer, he took time off of school to pursue those dreams. His latest works are short films Sunshine Day written by April Tylon and directed by Lawrence Lee Wallace and Fortunate written and directed by Darryl Kimbrough. He also has a background in theater in which he performed all at The Black Ensemble Theater in plays “Howl in Wolf” as Young Wolf, It’s alright to have a good time: The story of Curtis May field as Young Curtis, and Chicago’s Golden Soul As Curtis Mayfield. \r\n                                        He electrified the stage night after night with his acting and singing ability. Now that Cecil has experience performing in front of 300 plus people every night. He looks to take his gifts and talents that God has blessed him with a step further.\r\n                                        Currently auditioning for television series and more movies. Now with the opportunity and motivation that he has in becoming a major recording artist and acting on the big screen, his potential for greatness is limitless.', NULL, NULL),
-(3, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/2 (1).jpg', 'Mike Jones', 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Architecto atque aut blanditiis consectetur', '2021-06-05 06:59:49', '2021-06-05 06:59:49'),
-(4, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/u7.jpg', 'JXXIII', 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Architecto atque aut blanditiis consectetur', '2021-06-05 06:59:49', '2021-06-05 06:59:49'),
-(5, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/u4.jpg', 'Nyce Jewel Avery', 3, 'Lorem ipsum dolor sit amet, consectetur adipisicin...', NULL, NULL),
-(6, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/u5.jpg', '', 6, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Architecto atque aut blanditiis consectetur', '2021-06-05 06:59:49', '2021-06-05 06:59:49'),
-(10, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/u4.jpg', 'Jamaal Marvel', 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\r\n                Architecto atque aut blanditiis consectetur', NULL, NULL),
-(11, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/u5.jpg', 'Sydney Jules', 4, NULL, NULL, NULL);
+(2, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/Cecil-Jones-Photo2.JPG', 'Cecil Jones', '5', 'Cecil Eugene Jones Jr. was born in Chicago, Illinois on June 16, 1991.', NULL, NULL),
+(4, '', 'Sydney Jules', '4', NULL, '2021-06-05 06:59:49', '2021-12-14 01:58:49'),
+(10, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/u4.jpg', 'Jamaal Marvel', '4', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', NULL, NULL),
+(11, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/u5.jpg', 'Sydney Jules', '4', NULL, NULL, NULL),
+(12, '', 'ce', '3', 'dcsesdfe', '2021-12-13 04:00:38', '2021-12-13 04:00:38'),
+(13, '', 'abcd', '4', 'new-album', '2021-12-13 06:03:46', '2021-12-13 06:03:46'),
+(14, '', 'Sydney Jules', '2', 'Musician', '2021-12-14 02:05:58', '2021-12-14 02:05:58'),
+(15, '', 'Cecil Jones', '5', 'ghftyfygy', '2021-12-14 02:08:09', '2021-12-14 02:08:09'),
+(16, '', 'defertdd', '1', NULL, '2021-12-14 03:42:00', '2021-12-14 03:42:00');
 
 -- --------------------------------------------------------
 
@@ -140,11 +141,12 @@ CREATE TABLE `music_categories` (
 --
 
 INSERT INTO `music_categories` (`id`, `category`, `created_at`, `updated_at`) VALUES
-(1, 'rock', '2021-06-05 06:59:48', '2021-06-05 06:59:48'),
-(2, 'classic', '2021-06-05 06:59:48', '2021-06-05 06:59:48'),
 (3, 'jazz', '2021-06-05 06:59:48', '2021-06-05 06:59:48'),
 (4, 'hip hop', '2021-06-05 06:59:48', '2021-06-05 06:59:48'),
-(5, 'pop', '2021-06-05 06:59:48', '2021-06-05 06:59:48');
+(5, 'pop', '2021-06-05 06:59:48', '2021-06-05 06:59:48'),
+(6, 'soulful', '2021-12-14 06:04:27', '2021-12-14 06:04:27'),
+(8, 'slowmo', '2021-12-14 06:09:33', '2021-12-14 06:09:33'),
+(9, 'classic', '2021-12-14 06:42:11', '2021-12-14 06:42:11');
 
 -- --------------------------------------------------------
 
@@ -307,7 +309,7 @@ ALTER TABLE `albums`
 -- AUTO_INCREMENT for table `artists`
 --
 ALTER TABLE `artists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -325,7 +327,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `music_categories`
 --
 ALTER TABLE `music_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tracks`

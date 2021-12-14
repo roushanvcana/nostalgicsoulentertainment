@@ -40,8 +40,8 @@ class ArtistsController extends Controller
         
                 // get all the albums 
                 $data['music_category']=music_categories::all();
-                $data['tracksCount']=artists::all();
-    
+                // $data['tracksCount']=artists::all();
+                $data['tracksCount'] = artists::join('music_categories', 'music_categories.id', '=', 'artists.music_categories_id')->get();
                
                 // load the view and pass the data
                 return view('admin.artistlist', ['data'=>$data]);
@@ -125,9 +125,35 @@ class ArtistsController extends Controller
             * @param  int  $id
             * @return Response
             */
-        public function update($id)
+        public function update(Request $request)
         {
-            //
+            if($request->hasFile('image'))
+            {
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();  
+            
+            // $request->image->move(public_path('images'), $imageName);
+            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
+
+            $artist_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+            }
+            else
+            $artist_pic =''; 
+           // validate
+
+           /*for edit
+           $artist=::artists where('id',$request->input('member_id'))->first();
+           */ 
+        //    $artist = new artists;
+           $artist=artists::where('id',$request->input('id'))->first();
+           $artist->music_categories_id = $request->mcategory;
+           $artist->artist_name = $request->artist_name;
+           $artist->artist_pic = $artist_pic;
+           $artist->id = $request->id;
+           $artist->description = $request->description;
+           $artist->save();
+           
+           return redirect('/admin/artist')->with('Successfully Updated', 'Data Saved');
         }
     
         /**
@@ -138,7 +164,9 @@ class ArtistsController extends Controller
             */
         public function destroy($id)
         {
-            //
+         
+            artists::find($id)->delete();
+            return redirect()->back();
         }
 
 

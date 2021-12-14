@@ -20,7 +20,7 @@
             </ul> -->
 
             <div class="btn-group" style="float: right;">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal" style="background: #45219b;">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add-modal" style="background: #45219b;">
                Add Artist
               </button>
             </div>
@@ -40,21 +40,24 @@
             <table class="table table-hover">
             <thead>
                 <tr>
+                  <th>Category</th>
                     <th>Artist Name</th>
                     <th>Artist Pic</th>
                     <th>Description</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th>Action</th>
+                   
                 </tr>
             </thead>
             
             <tbody>
              
                 @foreach($data['tracksCount'] as $key => $value)
-                <?php $alldata="$value->artist_name- $value->artist_pic-$value->description";?>
+                <?php $alldata="$value->artist_name- $value->artist_pic-$value->description-$value->music_categories_id-$value->id";?>
                 <tr>
                     <!-- show the album (uses the show method found at GET /album/{id} -->
+                    <td>{{ $value->category}}</td>
                     <td> {{ $value->artist_name}} </td>
                     <td>
                     <a href="{{ URL::to('admin/artist/' . $value->id) }}">
@@ -64,6 +67,7 @@
                      <!-- <td></td> -->
                     <td>{{ $value->created_at}}</td>
                     <td>{{ $value->updated_at}}</td>
+
                     
                     <td>
                         <!-- <a class="btn btn-small btn-success" href="{{ URL::to('artist/' . $value->id.'/tracks/create') }}">Add Track</a> -->
@@ -73,7 +77,7 @@
                          Edit
                         </button>
                         <!-- <a class="btn btn-small btn-info" href="{{ URL::to('artist/' . $value->id . '/edit') }}">Edit</a> -->
-                        <a class="btn btn-small btn-danger" href="#">Delete</a>
+                        <a class="btn btn-small btn-danger" href="{{url('/artist-delete/')}}/{{$value->id}}">Delete</a>
         
                     </td>
                     
@@ -86,7 +90,7 @@
     </div>
 
    
-<div class="modal fade" id="edit-modal">
+<div class="modal fade" id="add-modal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="display:inline-block;">
@@ -102,6 +106,7 @@
           <div class="box-body">
             <div class="form-group">
               <label for="">Select Music</label> 
+             
               <select class="form-control" name="mcategory">
                   <?php
                     if(!is_null($data['music_category']))
@@ -168,12 +173,14 @@
       </div>
 
       <div class="modal-body">
-        <form role="form" action="">
+        <form role="form" action="{{ url('artist-update')}}" method="POST">
           <input type="hidden" name="_token" value="">
+          @csrf
           <div class="box-body">
           <div class="form-group">
               <label for="">Select Music</label> 
-              <select class="form-control" name="mcategory">
+              <input type="hidden" class="form-control" name="id" id="id" placeholder="Artist Name">
+              <select class="form-control" name="mcategory" id="mcategory">
                   <?php
                     if(!is_null($data['music_category']))
                     {
@@ -238,6 +245,9 @@
     $("#artist_image").attr("src",splitData[1])
     //$("#artist_pic").val(splitData[1]);
     $("#description_edit").html(splitData[2]);
+    $("#mcategory").val(splitData[3])
+    $("#id").val(splitData[4])
+    document.getElementById('mcategory').value=splitData[3];
   
   }
 </script>
