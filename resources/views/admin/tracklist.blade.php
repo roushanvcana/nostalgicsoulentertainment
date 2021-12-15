@@ -20,7 +20,7 @@
             </ul> -->
 
             <div class="btn-group" style="float: right;">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal" style="background: #45219b;">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add-track" style="background: #45219b;">
                Add Track List
               </button>
             </div>
@@ -36,13 +36,14 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
-            
+            <div class="table_box" style="overflow-x: scroll; width:1120px;">
             <table class="table table-hover">
             <thead>
                 <tr>
+                    <th>Category</th>
                     <th>Track Pic</th>
                     <th>Track Name</th>
-                    <th>Track</th>
+                     <th>Track</th> 
                     <th>Track Time</th>
                     <th>Description</th>
                     <th>Created At</th>
@@ -51,16 +52,21 @@
             </thead>
             
             <tbody>
-                @foreach($data as $key => $value)
+            @foreach($data['tracksCount'] as $key => $value)
+                <?php $alldata="$value->artist_name- $value->artist_pic-$value->description-$value->music_categories_id-$value->id-$value->artists_id";?>
                 <tr>
                     <!-- show the album (uses the show method found at GET /album/{id} -->
+                    <td>{{ $value->category}}</td>
                     <td>
-                    <a href="{{ URL::to('admin/genre/' . $value->id) }}">
+                    <a href="{{ URL::to('admin/tractlist' . $value->id) }}">
                     <img src="{{ $value->track_pic}}" alt="/"></a>
                     </td>
                     <td> {{ $value->track_name}} </td>
-                     <td>{{ $value->track}}</td> 
-                     <!-- <td></td> -->
+                      <td>
+                        <a href="{{ $value->track}}" target="_blank" download>
+                        <i class="bi bi-cloud-arrow-down-fill" style="font-size: 22px; color: #45219B;"></i>
+                        </a>
+                      </td> 
                      <td>{{ $value->track_time}}</td> 
                      <td>{{ $value->description}}</td> 
                     <td>{{ $value->created_at}}</td>
@@ -74,7 +80,7 @@
                          Edit
                         </button>
                         <!-- <a class="btn btn-small btn-info" href="{{ URL::to('artist/' . $value->id . '/edit') }}">Edit</a> -->
-                        <a class="btn btn-small btn-danger" href="#">Delete</a>
+                        <a class="btn btn-small btn-danger" href="{{url('/tractlist/')}}/{{$value->id}}">Delete</a>
         
                     </td>
                     
@@ -82,34 +88,62 @@
                 @endforeach
             </tbody>
             </table>
+            </div>
         </div>
         </div>
     </div>
 
    
-<div class="modal fade" id="edit-modal">
+<div class="modal fade" id="add-track">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="display:inline-block;">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title"><b>Add Artist</b></h4>
+        <h4 class="modal-title"><b>Add Track Details</b></h4>
       </div>
 
       <div class="modal-body">
-        <form role="form" action="">
-          <input type="hidden" name="_token" value="">
+      <form role="form" action="{{ url('tractlist-save')}}" method="POST">
+        @csrf
+        <div class="form-group">
+              <label for="">Select Music</label> 
+              <input type="hidden" value="<?php echo $data['album_id'];?>" id="album_id" name="album_id"> 
+             
+              <select class="form-control" name="mcategory">
+                  <?php
+                    if(!is_null($data['music_category']))
+                    {
+                      foreach($data['music_category'] as $music)
+                      {
+                  ?>
+                  <option value="<?php echo $music->id;?>"><?php echo $music->category;?></option>
+                  <?php
+                      }
+                    }
+                  ?>
+              </select>
+            </div>
           <div class="box-body">  
             <div class="form-group">
-              <label for="">Artist Name</label> 
-              <input type="text" class="form-control" name="artist_name" placeholder="Artist Name" >
+              <label for="">Track Name</label> 
+              <input type="text" class="form-control" name="track_name" placeholder="Enter Name" >
             </div>
             <div class="form-group">
-              <label for="">Artist Pic</label> 
-              <input type="file" class="form-control" name="image" onchange="" >
+              <label for="">Track Pic</label> 
+              <input type="file" class="form-control" name="track_pic" onchange="" >
               <!-- <input type="text" class="form-control" name="username" placeholder="Artist Pic"> -->
             </div>
+            <div class="form-group">
+              <label for="">Track</label> 
+              <input type="file" class="form-control" name="track" accept="audio/*">
+              <!-- <input type="text" class="form-control" name="track" placeholder="Upload Track" > -->
+            </div>
+            <div class="form-group">
+              <label for="">Track Time</label> 
+              <input type="time" class="form-control" name="track_time" placeholder="Enter Track Time" >
+            </div>  
             <div class="form-group">
               <label for="">Description</label> 
            <textarea id="description" placeholder="Enter Description" name="description" class="form-control"></textarea>
@@ -117,17 +151,6 @@
               <!-- <input type="text" class="form-control" name="description" placeholder="Enter Description"> -->
             </div>
 
-            <!-- <div class="form-group">
-              <label for="">Created At</label> 
-              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="created_at">
-               <input type="text" class="form-control" name="created-at" placeholder="Created At"> 
-            </div> -->
-            
-            <!-- <div class="form-group">
-              <label for="">Updated At</label> 
-              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="updated_at">
-               <input type="text" class="form-control" name="updated_at" placeholder="Updated At"> 
-            </div> -->
 
           </div>
           <div class="modal-footer">

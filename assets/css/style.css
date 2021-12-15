@@ -1,4 +1,7 @@
 /*Homepage start*/
+.table_box {
+    overflow-x: hidden;
+}
 /*body*/
 .container {
     margin: 0 auto;

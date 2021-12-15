@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\albums;
 use App\Models\tracks;
 use App\Models\artists;
+use App\Models\music_categories;
+use App\Http\Controllers\MusicCategoriesController;
 use Illuminate\Support\Facades\DB;
 
 class TracksController extends Controller
@@ -43,33 +45,48 @@ class TracksController extends Controller
         *
         * @return Response
         */
-        public function index()
+        public function index($id)
         {
+
+            // get all the albums 
+            $data['album_id']=$id;
+            $data['music_category']=music_categories::all();
+            // $data['tracksCount']=artists::all();
+            $data['tracksCount'] = tracks::join('music_categories', 'music_categories.id', '=', 'tracks.music_categories_id')->where('albums_id',$id)->get();
            
-              // get all the albums 
-              $data = tracks::addSelect(['artists_id' => tracks::select('track_name')->whereColumn('id', 'artists_id')])->get();
+            // load the view and pass the data
+            return view('admin.tracklist', ['data'=>$data]);
     
-              if($data){
+        // get all the albums 
+       // return view('admin/artistlist');
+         }
+       // {
+           
+           // $data['tracks']= tracks::all();
+              // get all the albums 
+            //   $data = tracks::addSelect(['artists_id' => tracks::select('track_name')->whereColumn('id', 'artists_id')])->get();
+    
+            //   if($data){
   
-                  foreach($data as $artist)
-                  {
-                      $tracks = tracks::select(DB::raw('count(*) as tracksCount, artists_id'))->where('artists_id', $artist->id)->groupBy('artists_id')->first();
-                      if($tracks)
-                      {
-                          $artist['tracksCount']=$tracks->tracksCount;
-                          // echo $tracks->albums_id;
-                      }
-                      else{
-                          $artist['tracksCount']=0;
-                      }
-                  } 
-              }
+            //       foreach($data as $artist)
+            //       {
+            //           $tracks = tracks::select(DB::raw('count(*) as tracksCount, artists_id'))->where('artists_id', $artist->id)->groupBy('artists_id')->first();
+            //           if($tracks)
+            //           {
+            //               $artist['tracksCount']=$tracks->tracksCount;
+            //               // echo $tracks->albums_id;
+            //           }
+            //           else{
+            //               $artist['tracksCount']=0;
+            //           }
+            //       } 
+            //   }
              
               // load the view and pass the data
-              return view('admin.tracklist', ['data'=>$data]);
+            //  return view('admin.tracklist', ['data'=>$data]);
 
            // return view('admin/tracklist');
-        }
+       // }
     
         /**
             * Show the form for creating a new resource.
@@ -86,9 +103,38 @@ class TracksController extends Controller
             *
             * @return Response
             */
-        public function store()
+        public function store(Request $request)
         {
-            //
+            if($request->hasFile('image'))
+            {
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();  
+            
+            // $request->image->move(public_path('images'), $imageName);
+            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
+
+            $track_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+            }
+            else
+            $track_pic =''; 
+           // validate
+
+           /*for edit
+           $artist=::artists where('id',$request->input('member_id'))->first();
+           */ 
+           $track = new tracks;
+           $track->albums_id = $request->album_id;
+           $track->artists_id = $request->artists_id;
+           $track->music_categories_id = $request->mcategory;
+           $track->track_name = $request->track_name;
+           $track->track_pic = $request->$track_pic;
+           $track->track_time = $request->track_time;
+           $track->track = $request->track;
+           $track->id     = $request->id;
+           $track->description = $request->description;
+           $track->save();
+           
+           return redirect('/admin/tractlist/'.$request->album_id)->with('Successfully Added', 'Data Saved');
         }
     
         /**
@@ -119,9 +165,35 @@ class TracksController extends Controller
             * @param  int  $id
             * @return Response
             */
-        public function update($id)
+        public function update(Request $request)
         {
-            //
+            if($request->hasFile('image'))
+            {
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();  
+            
+            // $request->image->move(public_path('images'), $imageName);
+            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
+
+            $track_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+            }
+            else
+            $track_pic =''; 
+           // validate
+
+           /*for edit
+           $artist=::artists where('id',$request->input('member_id'))->first();
+           */ 
+        //    $artist = new artists;
+           $track=artists::where('id',$request->input('id'))->first();
+           $track->music_categories_id = $request->mcategory;
+           $track->artist_name = $request->artist_name;
+           $track->artist_pic = $track_pic;
+           $track->id = $request->id;
+           $track->description = $request->description;
+           $track->save();
+           
+           return redirect('/admin/artist')->with('Successfully Updated', 'Data Saved');
         }
     
         /**
@@ -132,7 +204,8 @@ class TracksController extends Controller
             */
         public function destroy($id)
         {
-            //
+            tracks::find($id)->delete();
+            return redirect()->back();
         }
     
 }

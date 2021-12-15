@@ -60,9 +60,11 @@
                     <td>{{ $value->created_at}}</td>
                     
                     <td>
-                     <button type="button" class="btn btn-small btn-success" onclick="addAlbum('<?php echo $alldata;?>')" data-toggle="modal" data-target="#album-modal">
+                    <a href="{{ url('/admin/tractlist/'.$value->id) }}">
+                     <button type="button" class="btn btn-small btn-success">
                          Track
                       </button>
+                    </a>
                         <!-- <a class="btn btn-small btn-success" href="{{ URL::to('albums/' . $value->id.'/tracks/create') }}">Add Track</a> -->
                        
                         <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->

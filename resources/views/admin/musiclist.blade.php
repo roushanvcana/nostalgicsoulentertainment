@@ -49,7 +49,7 @@
             <tbody>
              
              @foreach($data['music_category'] as $key => $value)
-           <?php $alldata="$value->category";?>
+           <?php $id="$value->id";?>
              <tr>
                  <!-- show the album (uses the show method found at GET /album/{id} -->
                  <td>{{ $value->category}}</td>
@@ -59,7 +59,7 @@
                      <!-- <a class="btn btn-small btn-success" href="{{ URL::to('artist/' . $value->id.'/tracks/create') }}">Add Track</a> -->
      
                      <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->
-                     <button type="button" class="btn btn-small btn-info" onclick="editMusic('<?php echo $alldata;?>')">
+                     <button type="button" class="btn btn-small btn-info" onclick="editMusic('<?php echo $id;?>','<?php echo $value->category;?>')">
                          Edit
                         </button>
                      <!-- <a class="btn btn-small btn-info" href="{{ URL::to('artist/' . $value->id . '/edit') }}">Edit</a> -->
@@ -126,6 +126,7 @@
           <div class="box-body">
           <div class="form-group">
               <label for="">Music Category</label> 
+              <input type="hidden" class="form-control" id="id" name="id">
               <input type="text" class="form-control" id="music_category" name="music_category" placeholder="Edit Music Category">
             </div>
 
@@ -146,22 +147,11 @@
 </div>
 
 <script>
-  function editMusic(data)
+  function editMusic(id,category)
   {
-    console.log(data)
     $("#edit-music").modal('show');
-
-    let showData = data;
-    const splitData = showData.split("-");
-    console.log(splitData);
-    $("#music_category").val(splitData[0]);
-   // $("#artist_image").attr("src",splitData[1])
-    //$("#artist_pic").val(splitData[1]);
-   // $("#description_edit").html(splitData[2]);
-   // $("#mcategory").val(splitData[3])
-   // $("#id").val(splitData[4])
-    //document.getElementById('mcategory').value=splitData[3];
-  
+    $("#id").val(id);
+    $("#music_category").val(category);
   }
 </script>
 @endsection

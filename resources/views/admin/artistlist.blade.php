@@ -36,7 +36,7 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
-            
+        <div class="table_box" style="overflow-x: scroll; width:1120px;">
             <table class="table table-hover">
             <thead>
                 <tr>
@@ -85,6 +85,7 @@
                 @endforeach
             </tbody>
             </table>
+        </div>
         </div>
         </div>
     </div>
