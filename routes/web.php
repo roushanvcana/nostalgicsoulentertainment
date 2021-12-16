@@ -39,7 +39,7 @@ Route::get('/category-delete/{id}', [MusicCategoriesController::class, 'destroy'
 
 Route::post('/tractlist-save', [TracksController::class, 'store']);
 Route::post('/tractlist-update', [TracksController::class, 'update']);
-Route::get('/tractlist/{id}', [TracksController::class, 'destroy']);
+Route::get('/tractlist-delete/{id}', [TracksController::class, 'destroy']);
 
 Route::get('/genre', [MusicCategoriesController::class, 'genre'])->name('genre');
 Route::get('/albums', [AlbumsController::class, 'albums'])->name('albums');
@@ -69,6 +69,7 @@ Route::get('/admin/artist', [ArtistsController::class, 'index']);
 
 Route::get('/admin/music-category', [MusicCategoriesController::class, 'index']);
 Route::get('/admin/tractlist/{id}', [TracksController::class, 'index']);
+Route::get('/admin/albums', [ AlbumsController::class, 'index']);
 
 
 Route::resource('admin/albums/', AlbumsController::class)->middleware('is_admin');

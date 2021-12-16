@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2021 at 06:15 AM
+-- Generation Time: Dec 16, 2021 at 12:26 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -43,13 +43,13 @@ CREATE TABLE `albums` (
 --
 
 INSERT INTO `albums` (`id`, `album_pic`, `album_name`, `artists_id`, `music_categories_id`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/CURRENT STATE ART.jpeg', 'Current State Art', 4, 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Architecto atque aut blanditiis consectetur', '2021-06-05 06:59:50', '2021-06-05 06:59:50'),
-(2, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Sucker.jpg', 'Sucker', 10, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Architecto atque aut blanditiis consectetur', '2021-06-05 06:59:50', '2021-06-05 06:59:50'),
-(3, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/Vintage1.jpg', 'Vintage', 11, 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Architecto atque aut blanditiis consectetur', '2021-06-05 06:59:50', '2021-06-05 06:59:50'),
-(5, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/feel-da-vibes.png', 'Feel Da Vibes', 5, 5, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Architecto atque aut blanditiis consectetur', '2021-06-05 06:59:50', '2021-06-05 06:59:50'),
-(7, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/crisis.jpeg', 'Beautiful', 8, 7, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Architecto atque aut blanditiis consectetur', '2021-06-05 06:59:50', '2021-06-05 06:59:50'),
-(8, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/what-we-doing.png', 'What we Doing', 5, 6, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Architecto atque aut blanditiis consectetur', '2021-06-05 06:59:50', '2021-06-05 06:59:50'),
-(11, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Validity', 2, 5, 'Lorem ipsum dolor sit amet, consectetur adipisicin...', NULL, NULL);
+(2, '', 'Sucker  hhh', 10, 4, 'This is the Description.', '2021-06-05 06:59:50', '2021-12-16 04:48:27'),
+(5, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/feel-da-vibes.png', 'Feel Da Vibes', 5, 5, 'This is the Description.', '2021-06-05 06:59:50', '2021-06-05 06:59:50'),
+(7, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/crisis.jpeg', 'Beautiful', 8, 7, 'This is the Description.', '2021-06-05 06:59:50', '2021-06-05 06:59:50'),
+(8, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/what-we-doing.png', 'What we Doing', 5, 6, 'This is the Description.', '2021-06-05 06:59:50', '2021-06-05 06:59:50'),
+(11, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Validity', 2, 5, 'This is the Description.', NULL, NULL),
+(13, '', 'gvgh', 2, 3, 'ghvh', '2021-12-16 05:24:28', '2021-12-16 05:24:28'),
+(14, '', 'ghvhjjb', 11, 8, 'hjb hjmnm', '2021-12-16 05:24:52', '2021-12-16 05:24:52');
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,9 @@ INSERT INTO `artists` (`id`, `artist_pic`, `artist_name`, `music_categories_id`,
 (13, '', 'abcd', '4', 'new-album', '2021-12-13 06:03:46', '2021-12-13 06:03:46'),
 (14, '', 'Sydney Jules', '2', 'Musician', '2021-12-14 02:05:58', '2021-12-14 02:05:58'),
 (15, '', 'Cecil Jones', '5', 'ghftyfygy', '2021-12-14 02:08:09', '2021-12-14 02:08:09'),
-(16, '', 'defertdd', '1', NULL, '2021-12-14 03:42:00', '2021-12-14 03:42:00');
+(16, '', 'defertdd', '1', NULL, '2021-12-14 03:42:00', '2021-12-14 03:42:00'),
+(17, '', 'jazzybains', '6', 'Soluistics', '2021-12-15 03:07:36', '2021-12-15 03:07:36'),
+(18, '', 'Duzo Lenajd', '3', 'Musical Instruments', '2021-12-16 04:16:31', '2021-12-16 04:16:31');
 
 -- --------------------------------------------------------
 
@@ -141,7 +143,7 @@ CREATE TABLE `music_categories` (
 --
 
 INSERT INTO `music_categories` (`id`, `category`, `created_at`, `updated_at`) VALUES
-(3, 'jazz', '2021-06-05 06:59:48', '2021-06-05 06:59:48'),
+(3, 'jazz', '2021-06-05 06:59:48', '2021-12-15 00:45:32'),
 (4, 'hip hop', '2021-06-05 06:59:48', '2021-06-05 06:59:48'),
 (5, 'pop', '2021-06-05 06:59:48', '2021-06-05 06:59:48'),
 (6, 'soulful', '2021-12-14 06:04:27', '2021-12-14 06:04:27'),
@@ -168,12 +170,12 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `tracks` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `track_pic` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `track_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `track` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `track_pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `track_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `track` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `track_time` time NOT NULL,
   `albums_id` bigint(20) NOT NULL,
-  `artists_id` bigint(20) NOT NULL,
+  `artists_id` bigint(20) DEFAULT 0,
   `music_categories_id` bigint(20) NOT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -185,25 +187,24 @@ CREATE TABLE `tracks` (
 --
 
 INSERT INTO `tracks` (`id`, `track_pic`, `track_name`, `track`, `track_time`, `albums_id`, `artists_id`, `music_categories_id`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/current-state-art.jpeg', 'Current State Art', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Dont-Judge-Me-feat.-James-Worthy.mp3', '00:03:04', 4, 1, 1, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-06-07 02:50:56', '2021-06-07 02:50:56'),
-(2, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Blind-Listen', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Blind-Listen-Track1.mp3', '03:07:00', 11, 2, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-13 17:41:35', '2021-08-13 17:41:53'),
-(3, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Face-The-Truth-Listen2', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Face-The-Truth-Listen2-Track2.mp3', '03:51:00', 11, 2, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-13 17:41:45', '2021-08-13 17:42:00'),
-(4, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Give It To Me', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Give-It-To-Me_Track6.mp3', '03:09:00', 11, 2, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-13 17:41:49', '2021-08-13 17:42:06'),
-(5, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Have No Fear Listen', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Have-No-Fear-Listen_Track6A.mp3', '01:51:00', 11, 2, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-13 17:42:19', '2021-08-13 17:42:19'),
-(6, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Hell Of A Night', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Hell-Of-A-Night-Track4.mp3', '03:56:00', 11, 2, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-13 17:43:45', '2021-08-13 17:43:45'),
-(7, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Jealousy Listen', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Jealousy-Listen-Track3.mp3', '03:23:00', 11, 2, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-13 17:45:11', '2021-08-13 17:45:11'),
-(8, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Masterpiece', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Masterpiece_Track9.mp3', '02:23:00', 11, 2, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-13 17:47:13', '2021-08-13 17:47:13'),
-(9, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Measures', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/MeasuresMSTR6721_Track10.mp3', '03:07:00', 11, 2, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-13 17:49:43', '2021-08-13 17:49:43'),
-(10, '', 'Current State', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Jxxiii - Current State .mp3', '02:22:00', 1, 4, 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-20 13:42:04', '2021-08-20 13:42:04'),
-(11, '', 'Go', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Jxxiii - Go .mp3', '01:38:00', 1, 4, 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-20 13:43:58', '2021-08-20 13:43:58'),
-(12, '', 'In Due Time', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Jxxiii - In Due Time.mp3', '03:39:00', 1, 4, 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-20 13:43:58', '2021-08-20 13:43:58'),
-(13, '', 'On My Vegan', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Jxxiii - On My Vegan.mp3', '02:48:00', 1, 4, 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-20 13:46:51', '2021-08-20 13:46:51'),
-(14, '', 'Right Around', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Jxxiii - Right Around.mp3', '03:23:00', 1, 4, 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-20 13:46:51', '2021-08-20 13:46:51'),
-(15, '', 'Sucker', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Sucker.mp3', '03:54:00', 2, 10, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-20 13:56:30', '2021-08-20 13:56:30'),
-(16, '', 'Mastered', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Sydney Vintage Mastered_1.mp3', '02:27:00', 3, 11, 4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-20 13:58:23', '2021-08-20 13:58:23'),
-(17, '', 'Feel The Vibes', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/FEEL THE VIBES NEW.mp3', '04:09:00', 5, 5, 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-20 14:04:55', '2021-08-20 14:04:55'),
-(18, '', 'Beautiful', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/1 Crisis - Beautiful (finalfinal).mp3', '03:12:00', 7, 8, 7, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-20 14:06:33', '2021-08-20 14:06:33'),
-(19, '', 'What we doing', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/What we doing NYCE ft Avery.mp3', '03:20:00', 8, 5, 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n        ', '2021-08-20 14:09:33', '2021-08-20 14:09:33');
+(1, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/img/demo/current-state-art.jpeg', 'Current State Art', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Dont-Judge-Me-feat.-James-Worthy.mp3', '00:03:04', 4, 1, 1, 'This is the Description.', '2021-06-07 02:50:56', '2021-06-07 02:50:56'),
+(2, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Blind-Listen', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Blind-Listen-Track1.mp3', '03:07:00', 11, 2, 4, 'This is the Description.', '2021-08-13 17:41:35', '2021-08-13 17:41:53'),
+(3, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Face-The-Truth-Listen2', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Face-The-Truth-Listen2-Track2.mp3', '03:51:00', 11, 2, 4, 'This is the Description.', '2021-08-13 17:41:45', '2021-08-13 17:42:00'),
+(4, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Give It To Me', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Give-It-To-Me_Track6.mp3', '03:09:00', 11, 2, 4, 'This is the Description.', '2021-08-13 17:41:49', '2021-08-13 17:42:06'),
+(5, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Have No Fear Listen', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Have-No-Fear-Listen_Track6A.mp3', '01:51:00', 11, 2, 4, 'This is the Description.', '2021-08-13 17:42:19', '2021-08-13 17:42:19'),
+(6, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Hell Of A Night', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Hell-Of-A-Night-Track4.mp3', '03:56:00', 11, 2, 4, 'This is the Description.', '2021-08-13 17:43:45', '2021-08-13 17:43:45'),
+(7, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Jealousy Listen', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Jealousy-Listen-Track3.mp3', '03:23:00', 11, 2, 4, 'This is the Description.', '2021-08-13 17:45:11', '2021-08-13 17:45:11'),
+(8, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Masterpiece', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/Masterpiece_Track9.mp3', '02:23:00', 11, 2, 4, 'This is the Description.', '2021-08-13 17:47:13', '2021-08-13 17:47:13'),
+(9, 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/Cecil-Validity-Album-Cover.png', 'Measures', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Music/MeasuresMSTR6721_Track10.mp3', '03:07:00', 11, 2, 4, 'This is the Description.', '2021-08-13 17:49:43', '2021-08-13 17:49:43'),
+(17, '', 'Feel The Vibes', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/FEEL THE VIBES NEW.mp3', '04:09:00', 5, 5, 3, 'This is the Description.', '2021-08-20 14:04:55', '2021-08-20 14:04:55'),
+(18, '', 'Beautiful', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/1 Crisis - Beautiful (finalfinal).mp3', '03:12:00', 7, 8, 7, 'This is the Description.', '2021-08-20 14:06:33', '2021-08-20 14:06:33'),
+(19, '', 'What we doing', 'http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/What we doing NYCE ft Avery.mp3', '03:20:00', 8, 5, 3, 'This is the Description.', '2021-08-20 14:09:33', '2021-08-20 14:09:33'),
+(20, NULL, 'Chronsis of Narnia', 'Blind-Listen-Track1.mp3', '02:02:00', 11, NULL, 3, 'rtftgf', '2021-12-15 05:09:41', '2021-12-15 05:09:41'),
+(21, NULL, 'df', 'Blind-Listen-Track1.mp3', '10:00:00', 11, NULL, 3, 'ygyjuh', '2021-12-15 05:10:54', '2021-12-15 05:10:54'),
+(22, NULL, 'ewfergr', NULL, '03:04:00', 2, NULL, 4, 'rtt', '2021-12-16 05:33:59', '2021-12-16 05:33:59'),
+(23, NULL, 'gjgyj', NULL, '04:55:00', 2, NULL, 4, 'tghtyht', '2021-12-16 05:34:21', '2021-12-16 05:34:21'),
+(24, NULL, 'Maleficient', 'Blind-Listen-Track1.mp3', '04:54:00', 7, NULL, 7, 'The chronensis of Narnia.', '2021-12-16 05:51:17', '2021-12-16 05:51:17'),
+(25, NULL, 'Maleficient', 'Blind-Listen-Track1.mp3', '03:03:00', 14, NULL, 8, 'vbhmhmkgjh', '2021-12-16 05:54:14', '2021-12-16 05:54:14');
 
 -- --------------------------------------------------------
 
@@ -303,13 +304,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `artists`
 --
 ALTER TABLE `artists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -333,7 +334,7 @@ ALTER TABLE `music_categories`
 -- AUTO_INCREMENT for table `tracks`
 --
 ALTER TABLE `tracks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`

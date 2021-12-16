@@ -50,6 +50,7 @@ class TracksController extends Controller
 
             // get all the albums 
             $data['album_id']=$id;
+            $data['albumData']=albums::where('id',$id)->first();
             $data['music_category']=music_categories::all();
             // $data['tracksCount']=artists::all();
             $data['tracksCount'] = tracks::join('music_categories', 'music_categories.id', '=', 'tracks.music_categories_id')->where('albums_id',$id)->get();
@@ -130,7 +131,7 @@ class TracksController extends Controller
            $track->track_pic = $request->$track_pic;
            $track->track_time = $request->track_time;
            $track->track = $request->track;
-           $track->id     = $request->id;
+           $track->id = $request->id;
            $track->description = $request->description;
            $track->save();
            
@@ -184,16 +185,19 @@ class TracksController extends Controller
            /*for edit
            $artist=::artists where('id',$request->input('member_id'))->first();
            */ 
-        //    $artist = new artists;
-           $track=artists::where('id',$request->input('id'))->first();
+           $track=tracks::where('id',$request->input('id'))->first();
+           $track->albums_id = $request->album_id;
+           $track->artists_id = $request->artists_id;
            $track->music_categories_id = $request->mcategory;
-           $track->artist_name = $request->artist_name;
-           $track->artist_pic = $track_pic;
+           $track->track_name = $request->track_name;
+           $track->track_pic = $request->$track_pic;
+           $track->track_time = $request->track_time;
+           $track->track = $request->track;
            $track->id = $request->id;
            $track->description = $request->description;
            $track->save();
            
-           return redirect('/admin/artist')->with('Successfully Updated', 'Data Saved');
+           return redirect('/admin/tractlist/'.$request->album_id)->with('Successfully Added', 'Data Saved');
         }
     
         /**

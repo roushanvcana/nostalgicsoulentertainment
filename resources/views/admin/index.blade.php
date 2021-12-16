@@ -15,9 +15,12 @@
           <h4 class="page-title">Albums</h4>
         </div>
         <div class="btn-group" style="float: right;">
-            <button type="button" class="btn btn-info" style="background: #45219b;">
-            <a href="{{ URL::to('admin/albums/create') }}" style="color: #FFFFFF;">Create a new Album</a>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add-album" style="background: #45219b;">
+               Add a New Album
               </button>
+            <!-- <button type="button" class="btn btn-info" style="background: #45219b;">
+            <a href="{{ URL::to('admin/albums/create') }}" style="color: #FFFFFF;">Add A New Album</a>
+              </button> -->
             </div>
         <!-- <nav class="navbar navbar-inverse">
             <ul class="nav navbar-nav">
@@ -39,43 +42,53 @@
             <table class="table table-hover">
             <thead>
                 <tr>
+                    <th>Music</th>
                     <th>Album</th>
-                    <th>Tracks</th>
                     <th>Artist</th>
+                    <th>Description</th>
                     <th>Added on</th>
+                    <th>Updated On</th>
                     <th>Action</th>
                   
                 </tr>
             </thead>
             <tbody>
-                @foreach($data as $key => $value)
-                <?php $alldata="$value->album_name- $value->tracksCount-$value->artists_id";?>
+                @foreach($data['tracksCount'] as $key => $value)
+               <!-- <?php echo print_r($value);?> -->
+                <?php 
+                  $alldata='';
+                  $alldata="$value->album_name@$value->album_pic@$value->description@$value->music_categories_id@$value->id@$value->artists_id";
+                ?>
                 <tr>
                     <!-- show the album (uses the show method found at GET /album/{id} -->
+                    <td>{{ $value->category}}</td> 
                     <td><a href="{{ URL::to('admin/albums/' . $value->id) }}">
-                    <img src="{{ $value->album_pic}}" alt="/"> {{ $value->album_name}}</a>
+                    <img src="{{ $value->album_pic}}" alt="/">{{ $value->album_name}}</a>
                    </td>
-                    <td class="text-primary"> {{ $value->tracksCount }}</td>
-                    <td>{{ $value->artists_id}}</td>
+                    <td class="text-primary"> {{ $value->artists_name }}</td>
+                    <td>{{ $value->description}}</td> 
+                    <!-- <td>{{ $value->artists_id}}</td> -->
                     <td>{{ $value->created_at}}</td>
-                    
+                    <td>{{ $value->updated_at}}</td>
                     <td>
                     <a href="{{ url('/admin/tractlist/'.$value->id) }}">
-                     <button type="button" class="btn btn-small btn-success">
+                     <button type="button" class="btn btn-small btn-success">  
                          Track
                       </button>
                     </a>
                         <!-- <a class="btn btn-small btn-success" href="{{ URL::to('albums/' . $value->id.'/tracks/create') }}">Add Track</a> -->
                        
                         <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->
-                        <button type="button" class="btn btn-small btn-info" data-toggle="modal" data-target="#edit-album">
+                        
+                        <button type="button" class="btn btn-small btn-info" onclick="editAlbum('<?php echo $alldata;?>')">
                          Edit
                         </button>
                         <!-- <a class="btn btn-small btn-info" href="{{ URL::to('albums/' . $value->id . '/edit') }}">Edit</a> -->
-                        <a class="btn btn-small btn-danger" href="#">Delete</a>
+                        <a class="btn btn-small btn-danger" href="{{url('/album-delete/')}}/{{$value->id}}">Delete</a>
         
                     </td>
                 </tr>
+                <?php echo $alldata='';?>
                 @endforeach
             </tbody>
             </table>
@@ -83,66 +96,83 @@
         </div>
     </div>
 
-    <div class="modal fade" id="album-modal">
+    <div class="modal fade" id="add-album">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="display:inline-block;">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title"><b>Add Track</b></h4>
+        <h4 class="modal-title"><b>Add Album</b></h4>
       </div>
 
       <div class="modal-body">
         <form role="form" action="{{ url('album-save')}}" method="POST">
-        <input type="hidden" name="_token" value="">
-           @csrf
+        @csrf
           <div class="box-body">
-     
           <div class="form-group">
-              <label for="">Album Pic</label> 
-              <input type="file" class="form-control" name="image" onchange="" >
-              <!-- <input type="text" class="form-control" name="username" placeholder="Artist Pic"> -->
+              <label for="">Select Music</label> 
+             
+              <select class="form-control" name="music_categories_id">
+                  <?php
+                    if(!is_null($data['music_category']))
+                    {
+                      foreach($data['music_category'] as $music)
+                      {
+                  ?>
+                  <option value="<?php echo $music->id;?>"><?php echo $music->category;?></option>
+                  <?php
+                      }
+                    }
+                  ?>
+              </select>
             </div>
 
+            <div class="form-group">
+              <label for="">Select Artist</label> 
+             
+              <select class="form-control" name="artists_id">
+                  <?php
+                    if(!is_null($data['tracksCount']))
+                    {
+                      foreach($data['tracksCount'] as $artist)
+                      {
+                  ?>
+                  <option value="<?php echo $artist->id;?>"><?php echo $artist->artists_name;?></option>
+                  <?php
+                      }
+                    }
+                  ?>
+              </select>
+            </div>
             <div class="form-group">
               <label for="">Album Name</label> 
-              <input type="text" class="form-control" name="album_name" placeholder="Album Name" >
+              <input type="text" class="form-control" name="album_name" placeholder="Album Name">
             </div>
-           
             <div class="form-group">
-              <label for="">Track</label> 
-              <input type="number" class="form-control" name="track" placeholder="Enter Track No.">
+              <label for="">Album Pic</label> 
+              <input type="file" class="form-control" name="image" onchange="">
+              <!-- <input type="text" class="form-control" name="username" placeholder="Artist Pic"> -->
             </div>
-
             <div class="form-group">
-              <label for="">Artist Name</label> 
-              <input type="text" class="form-control" name="artist_name" placeholder="Artist Name">
+              <label for="">Description</label> 
+           <textarea id="description" placeholder="Enter Description" name="description" class="form-control"></textarea>
+                      
+              <!-- <input type="text" class="form-control" name="description" placeholder="Enter Description"> -->
             </div>
-
-            <!-- <div class="form-group">
-              <label for="">Created At</label> 
-              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="created_at">
-               <input type="text" class="form-control" name="created-at" placeholder="Created At"> 
-            </div> -->
-            
-            <!-- <div class="form-group">
-              <label for="">Updated At</label> 
-              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="updated_at">
-               <input type="text" class="form-control" name="updated_at" placeholder="Updated At"> 
-            </div> -->
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+           
             <button type="submit" class="btn btn-primary">Submit</button>
+             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-
+    
 <div class="modal fade" id="edit-album">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -150,40 +180,54 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title"><b>Edit Track Details</b></h4>
+        <h4 class="modal-title"><b>Edit Album Details</b></h4>
       </div>
-
+      
       <div class="modal-body">
-        <form role="form" action="">
-          <input type="hidden" name="_token" value="">
+      <form role="form" action="{{ url('album-update')}}" method="POST">
+        <input type="hidden" name="_token" value="">
+          @csrf
           <div class="box-body">
-            <div class="form-group">
-              <label for="">Album Name</label> 
-              <input type="text" class="form-control" name="album_name" placeholder="Album Name" >
+          <div class="form-group">
+              <label for="">Select Music</label> 
+              <input type="hidden" class="form-control" name="id" id="id" placeholder="">
+              <input type="hidden" class="form-control" name="artists_id" id="artist_id">
+              <select class="form-control" name="music_categories_id" id="music_categories_id">
+                  <?php
+                    if(!is_null($data['music_category']))
+                    {
+                      foreach($data['music_category'] as $music)
+                      {
+                  ?>
+                  <option value="<?php echo $music->id;?>"><?php echo $music->category;?></option>
+                  <?php
+                      }
+                    }
+                  ?>
+              </select>
             </div>
+             <div class="form-group">
+              <label for="">Album Name</label> 
+              <input type="text" class="form-control" id="album_name" name="album_name" placeholder="Album Name" >
+            </div> 
+
+            <div class="form-group">
+              <label for="">Album Pic</label> 
+              <input type="file" class="form-control" name="image" onchange="">
+              <img scr="" id="artist_image" style="width: 50%;">
+              <!-- <input type="text" class="form-control" name="username" placeholder="Artist Pic"> -->
+            </div>
+
+            <!-- <div class="form-group">
+              <label for="">Track Time</label> 
+              <input type="text" class="form-control" id="track_time" name="track_time" placeholder="Album Name" >
+            </div>  -->
            
             <div class="form-group">
-              <label for="">Track</label> 
-              <input type="number" class="form-control" name="track" placeholder="Enter Track No.">
+              <label for="">Description</label> 
+              <textarea id="description_edit" placeholder="Enter Description" name="description" class="form-control" ></textarea>
             </div>
-
-            <div class="form-group">
-              <label for="">Artist Name</label> 
-              <input type="text" class="form-control" name="artist_name" placeholder="Artist Name">
-            </div>
-
-            <!-- <div class="form-group">
-              <label for="">Created At</label> 
-              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="created_at">
-               <input type="text" class="form-control" name="created-at" placeholder="Created At"> 
-            </div> -->
-            
-            <!-- <div class="form-group">
-              <label for="">Updated At</label> 
-              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="updated_at">
-               <input type="text" class="form-control" name="updated_at" placeholder="Updated At"> 
-            </div> -->
-
+      
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
@@ -198,19 +242,22 @@
 </div>
 
 <script>
-  function addAlbum(data)
+  function editAlbum(data)
   {
     console.log(data);
-    $("#album-modal").modal('show');
-    //let showData = data;
-    //const splitData = showData.split("-");
-    //console.log(splitData);
-   // $("#artist_name").val(splitData[0]);
-   // $("#artist_image").attr("src",splitData[1])
+    $("#edit-album").modal('show');
+    let showData = data;
+    const splitData = showData.split("@");
+    console.log(splitData);
+   $("#album_name").val(splitData[0]);
+   $("#artist_image").attr("src",splitData[1]);
+   $("#description_edit").html(splitData[2]);
+     $("#music_categories_id").val(splitData[3])
+     $("#id").val(splitData[4])
+     $("#artist_id").val(splitData[5])
     //$("#artist_pic").val(splitData[1]);
-   // $("#description_edit").html(splitData[2]);
-   // $("#mcategory").val(splitData[3])
-   // $("#id").val(splitData[4])
+   
+     
   //  document.getElementById('mcategory').value=splitData[3];
   
   }

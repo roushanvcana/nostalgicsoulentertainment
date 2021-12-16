@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\albums;
 use App\Models\artists;
 use App\Models\tracks;
+use App\Models\music_categories;
+use App\Http\Controllers\MusicCategoriesController;
 use Illuminate\Support\Facades\DB;
 
 class AlbumsController extends Controller
@@ -31,28 +33,45 @@ class AlbumsController extends Controller
         */
         public function index()
         {
+        
             // get all the albums 
-             $data = albums::addSelect(['artists_id' => artists::select('artist_name')->whereColumn('artists_id', 'artists.id')])->get();
-
-            if($data){
-
-                foreach($data as $album)
-                {
-                    $tracks = tracks::select(DB::raw('count(*) as tracksCount, albums_id'))->where('albums_id', $album->id)->groupBy('albums_id')->first();
-                    if($tracks)
-                    {
-                        $album['tracksCount']=$tracks->tracksCount;
-                        // echo $tracks->albums_id;
-                    }
-                    else{
-                        $album['tracksCount']=0;
-                    }
-                } 
-            }
+            $data['music_category']=music_categories::all();
+            // $data['tracksCount']=artists::all();
+            $data['tracksCount'] = albums::get([
+                DB::raw("id,album_pic,album_name,artists_id,(select artist_name from artists where id=artists_id) as artists_name,music_categories_id,(select category from music_categories where id=music_categories_id) as category,description,created_at,updated_at")]);
+            //$data['tracksCount'] = albums::join('music_categories', 'music_categories.id', '=', 'albums.music_categories_id')->get();
            
             // load the view and pass the data
             return view('admin.index', ['data'=>$data]);
-        }
+    
+        // get all the albums 
+       // return view('admin/artistlist');
+      }
+
+       // {
+
+            // get all the albums 
+           //  $data = albums::addSelect(['artists_id' => artists::select('artist_name')->whereColumn('artists_id', 'artists.id')])->get();
+
+           // if($data){
+
+              //  foreach($data as $album)
+              //  {
+                //    $tracks = tracks::select(DB::raw('count(*) as tracksCount, albums_id'))->where('albums_id', $album->id)->groupBy('albums_id')->first();
+                 //   if($tracks)
+                  //  {
+                    //    $album['tracksCount']=$tracks->tracksCount;
+                        // echo $tracks->albums_id;
+                   // }
+                   // else{
+                     //   $album['tracksCount']=0;
+                   // }
+               // } 
+          //  }
+           
+            // load the view and pass the data
+          //  return view('admin.index', ['data'=>$data]);
+     //   }
     
         /**
             * Show the form for creating a new resource.
@@ -89,14 +108,15 @@ class AlbumsController extends Controller
            $artist=::artists where('id',$request->input('member_id'))->first();
            */ 
            $album = new albums;
+           $album->music_categories_id =  $request->music_categories_id;
+           $album->artists_id     = $request->artists_id;
            $album->album_name     = $request->album_name;
            $album->album_pic      = $album_pic;
-           $album->artists_id     = $request->artists_id;
-           $album->music_categories_id =  $request->music_categories_id;
+           $album->id     = $request->id;
            $album->description = $request->description;
            $album->save();
            
-           return redirect('admin/albums')->with('success','You have successfully registered. Please login again.');;
+           return redirect('admin/albums')->with('Successfully Added', 'Data Saved');;
         }
         // {
 
@@ -182,9 +202,36 @@ class AlbumsController extends Controller
             * @param  int  $id
             * @return Response
             */
-        public function update($id)
+        public function update(Request $request)
         {
-            //
+            if($request->hasFile('image'))
+            {
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();  
+            
+            // $request->image->move(public_path('images'), $imageName);
+            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
+
+            $album_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+            }
+            else
+            $album_pic =''; 
+           // validate
+
+           /*for edit
+           $artist=::artists where('id',$request->input('member_id'))->first();
+           */ 
+        //    $artist = new artists;
+           $album=albums::where('id',$request->input('id'))->first();
+           $album->music_categories_id = $request->music_categories_id;
+           $album->artists_id = $request->artists_id;
+           $album->album_name = $request->album_name;
+           $album->album_pic = $album_pic;
+           $album->id = $request->id;
+           $album->description = $request->description;
+           $album->save();
+           
+           return redirect('/admin/albums')->with('Successfully Updated', 'Data Saved');
         }
     
         /**
@@ -195,7 +242,8 @@ class AlbumsController extends Controller
             */
         public function destroy($id)
         {
-            //
+            albums::find($id)->delete();
+            return redirect()->back();
         }
 
 

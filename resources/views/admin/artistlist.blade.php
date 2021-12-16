@@ -138,18 +138,6 @@
               <!-- <input type="text" class="form-control" name="description" placeholder="Enter Description"> -->
             </div>
 
-            <!-- <div class="form-group">
-              <label for="">Created At</label> 
-              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="created_at">
-               <input type="text" class="form-control" name="created-at" placeholder="Created At"> 
-            </div> -->
-            
-            <!-- <div class="form-group">
-              <label for="">Updated At</label> 
-              <input class="form-control" type="datetime-local" id="Test_DatetimeLocal" name="updated_at">
-               <input type="text" class="form-control" name="updated_at" placeholder="Updated At"> 
-            </div> -->
-
           </div>
           <div class="modal-footer">
            

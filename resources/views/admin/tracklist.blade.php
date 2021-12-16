@@ -53,7 +53,7 @@
             
             <tbody>
             @foreach($data['tracksCount'] as $key => $value)
-                <?php $alldata="$value->artist_name- $value->artist_pic-$value->description-$value->music_categories_id-$value->id-$value->artists_id";?>
+                <?php $alldata="$value->track_name-$value->track_pic-$value->description";?>
                 <tr>
                     <!-- show the album (uses the show method found at GET /album/{id} -->
                     <td>{{ $value->category}}</td>
@@ -76,7 +76,8 @@
                         <!-- <a class="btn btn-small btn-success" href="{{ URL::to('artist/' . $value->id.'/tracks/create') }}">Add Track</a> -->
         
                         <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->
-                        <button type="button" class="btn btn-small btn-info" data-toggle="modal" data-target="#modal-edit">
+                      
+                        <button type="button" class="btn btn-small btn-info" onclick="editTrack('<?php echo $alldata;?>')">
                          Edit
                         </button>
                         <!-- <a class="btn btn-small btn-info" href="{{ URL::to('artist/' . $value->id . '/edit') }}">Edit</a> -->
@@ -106,28 +107,12 @@
 
       <div class="modal-body">
       <form role="form" action="{{ url('tractlist-save')}}" method="POST">
-        @csrf
-        <div class="form-group">
-              <label for="">Select Music</label> 
-              <input type="hidden" value="<?php echo $data['album_id'];?>" id="album_id" name="album_id"> 
-             
-              <select class="form-control" name="mcategory">
-                  <?php
-                    if(!is_null($data['music_category']))
-                    {
-                      foreach($data['music_category'] as $music)
-                      {
-                  ?>
-                  <option value="<?php echo $music->id;?>"><?php echo $music->category;?></option>
-                  <?php
-                      }
-                    }
-                  ?>
-              </select>
-            </div>
+       @csrf  
           <div class="box-body">  
             <div class="form-group">
               <label for="">Track Name</label> 
+              <input type="hidden" class="form-control" name="album_id" value="<?php echo $data['album_id'];?>" placeholder="Enter Name" >
+              <input type="hidden" class="form-control" name="mcategory" value="<?php echo $data['albumData']['music_categories_id'];?>" placeholder="Enter Name" >
               <input type="text" class="form-control" name="track_name" placeholder="Enter Name" >
             </div>
             <div class="form-group">
@@ -164,6 +149,88 @@
   </div>
 </div>
 
+<div class="modal fade" id="edit-track">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="display:inline-block;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title"><b>Edit Details</b></h4>
+      </div>
+       <!-- <input type="hidden" name="_token" value=""> -->
+
+      <div class="modal-body">
+      <form role="form" action="{{ url('tractlist-update')}}" method="POST">
+       @csrf  
+          <div class="box-body">  
+            <div class="form-group">
+              <label for="">Track Name</label> 
+              <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $data['id'];?>">
+              <input type="hidden" class="form-control" name="album_id" value="<?php echo $data['album_id'];?>" placeholder="Enter Name" >
+              <input type="hidden" class="form-control" name="mcategory" value="<?php echo $data['albumData']['music_categories_id'];?>" placeholder="Enter Name">
+              <input type="text" class="form-control"  id="track_name" name="track_name" placeholder="Enter Name" >
+            </div>
+            <div class="form-group">
+              <label for="">Track Pic</label> 
+              <input type="file" class="form-control" name="track_pic" onchange="">
+              <img scr="" id="artist_image" style="width: 50%;">
+              <!-- <input type="text" class="form-control" name="username" placeholder="Artist Pic"> -->
+            </div>
+            <div class="form-group">
+              <label for="">Track</label> 
+              <input type="file" class="form-control" name="track" accept="audio/*">
+              <!-- <input type="text" class="form-control" name="track" placeholder="Upload Track" > -->
+            </div>
+            <div class="form-group">
+              <label for="">Track Time</label> 
+              <input type="time" id="track_time" class="form-control" name="track_time" placeholder="Enter Track Time" >
+            </div>  
+            <div class="form-group">
+              <label for="">Description</label> 
+           <textarea id="description" placeholder="Enter Description" name="description" class="form-control"></textarea>
+                      
+              <!-- <input type="text" class="form-control" name="description" placeholder="Enter Description"> -->
+            </div>
+
+
+          </div>
+          <div class="modal-footer">
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+     
+      </div>
+    </div>
+  </div>
+</div>
+
 
 </div>
+
+<script>
+  function editTrack(data)
+  {
+    console.log(data)
+    $("#edit-track").modal('show');
+    let showData = data;
+    const splitData = showData.split("-");
+     console.log(splitData);
+    $("#track_name").val(splitData[0]);
+    $("#artist_image").attr("src",splitData[1]);
+    $("#track_time").attr(splitData[2]);  
+    $("#description").html(splitData[3]);
+    $("#id").val(splitData[4])
+    //$("#artist_pic").val(splitData[1]);
+   
+    //$("#mcategory").val(splitData[3])
+    //$("#id").val(splitData[4])
+    //document.getElementById('mcategory').value=splitData[3];
+  
+  }
+</script>
 @endsection
+
+

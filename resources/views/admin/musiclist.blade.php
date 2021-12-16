@@ -150,6 +150,7 @@
   function editMusic(id,category)
   {
     $("#edit-music").modal('show');
+    console.log(id,category);
     $("#id").val(id);
     $("#music_category").val(category);
   }
