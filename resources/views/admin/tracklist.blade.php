@@ -84,7 +84,7 @@
                          Edit
                         </button>
                         <!-- <a class="btn btn-small btn-info" href="{{ URL::to('artist/' . $value->id . '/edit') }}">Edit</a> -->
-                        <a class="btn btn-small btn-danger" href="{{url('/tractlist/')}}/{{$value->id}}">Delete</a>
+                        <a class="btn btn-small btn-danger" href="{{url('/tractlist-delete/')}}/{{$value->id}}">Delete</a>
         
                     </td>
                     
