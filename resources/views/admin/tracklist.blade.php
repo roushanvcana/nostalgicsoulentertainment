@@ -53,7 +53,10 @@
             
             <tbody>
             @foreach($data['tracksCount'] as $key => $value)
-                <?php $alldata="$value->track_name-$value->track_pic-$value->description";?>
+            <?php 
+            $alldata='';
+            $alldata="$value->track_name@$value->track_pic@$value->track@$value->track_time@$value->description@$value->id@$value->albums_id";
+                ?>
                 <tr>
                     <!-- show the album (uses the show method found at GET /album/{id} -->
                     <td>{{ $value->category}}</td>
@@ -111,7 +114,7 @@
           <div class="box-body">  
             <div class="form-group">
               <label for="">Track Name</label> 
-              <input type="hidden" class="form-control" name="album_id" value="<?php echo $data['album_id'];?>" placeholder="Enter Name" >
+              <input type="hidden" class="form-control" name="album_id" value="<?php echo $data['album_id'];?>" placeholder="Enter Name">
               <input type="hidden" class="form-control" name="mcategory" value="<?php echo $data['albumData']['music_categories_id'];?>" placeholder="Enter Name" >
               <input type="text" class="form-control" name="track_name" placeholder="Enter Name" >
             </div>
@@ -166,7 +169,7 @@
           <div class="box-body">  
             <div class="form-group">
               <label for="">Track Name</label> 
-              <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $data['id'];?>">
+              <input type="hidden" class="form-control" name="id" id="id" placeholder="Track Id">
               <input type="hidden" class="form-control" name="album_id" value="<?php echo $data['album_id'];?>" placeholder="Enter Name" >
               <input type="hidden" class="form-control" name="mcategory" value="<?php echo $data['albumData']['music_categories_id'];?>" placeholder="Enter Name">
               <input type="text" class="form-control"  id="track_name" name="track_name" placeholder="Enter Name" >
@@ -179,16 +182,16 @@
             </div>
             <div class="form-group">
               <label for="">Track</label> 
-              <input type="file" class="form-control" name="track" accept="audio/*">
+              <input type="file" class="form-control" id="track" name="track" accept="audio/*">
               <!-- <input type="text" class="form-control" name="track" placeholder="Upload Track" > -->
             </div>
             <div class="form-group">
               <label for="">Track Time</label> 
-              <input type="time" id="track_time" class="form-control" name="track_time" placeholder="Enter Track Time" >
+              <input type="text" id="track_time" class="form-control" name="track_time" placeholder="Enter Track Time" >
             </div>  
             <div class="form-group">
               <label for="">Description</label> 
-           <textarea id="description" placeholder="Enter Description" name="description" class="form-control"></textarea>
+           <textarea id="description_edit" placeholder="Enter Description" name="description" class="form-control"></textarea>
                       
               <!-- <input type="text" class="form-control" name="description" placeholder="Enter Description"> -->
             </div>
@@ -216,13 +219,14 @@
     console.log(data)
     $("#edit-track").modal('show');
     let showData = data;
-    const splitData = showData.split("-");
+    const splitData = showData.split("@");
      console.log(splitData);
     $("#track_name").val(splitData[0]);
     $("#artist_image").attr("src",splitData[1]);
-    $("#track_time").attr(splitData[2]);  
-    $("#description").html(splitData[3]);
-    $("#id").val(splitData[4])
+    $("#track").attr("src",splitData[2]);   
+    $("#track_time").val(splitData[3]);  
+    $("#description_edit").val(splitData[4]);
+    $("#id").val(splitData[5])
     //$("#artist_pic").val(splitData[1]);
    
     //$("#mcategory").val(splitData[3])
