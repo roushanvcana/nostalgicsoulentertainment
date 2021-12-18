@@ -102,7 +102,7 @@
       </div>
 
       <div class="modal-body">
-        <form role="form" action="{{ url('artist-save')}}" method="POST">
+        <form role="form" action="{{ url('artist-save')}}" method="POST" enctype="multipart/form-data">
         @csrf
           <div class="box-body">
             <div class="form-group">

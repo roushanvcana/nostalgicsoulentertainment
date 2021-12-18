@@ -67,18 +67,14 @@ class ArtistsController extends Controller
             */    
         public function store(Request $request)
         {
-            if($request->hasFile('image'))
-            {
-            $image = $request->file('image');
-            $imageName = time().'.'.$image->getClientOriginalExtension();  
             
-            // $request->image->move(public_path('images'), $imageName);
-            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
+                $image = $request->file('image');
+                $imageName = time().'.'.$image->getClientOriginalExtension();  
+                $request->image->move(public_path('images'), $imageName);
+                //$request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
 
-            $artist_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
-            }
-            else
-            $artist_pic =''; 
+                $artist_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+            
            // validate
 
            /*for edit
