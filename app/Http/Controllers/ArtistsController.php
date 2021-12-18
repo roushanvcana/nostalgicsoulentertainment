@@ -36,19 +36,23 @@ class ArtistsController extends Controller
         * @return Response
         */
         public function index()
+        
         {
         
-                // get all the albums 
-                $data['music_category']=music_categories::all();
-                // $data['tracksCount']=artists::all();
-                $data['tracksCount'] = artists::join('music_categories', 'music_categories.id', '=', 'artists.music_categories_id')->get();
-               
-                // load the view and pass the data
-                return view('admin.artistlist', ['data'=>$data]);
-        
             // get all the albums 
-           // return view('admin/artistlist');
-        }
+            $data['music_category']=music_categories::all();
+            // $data['tracksCount']=artists::all();
+            $data['tracksCount'] = artists::get([
+                DB::raw("id,artist_pic,artist_name,music_categories_id,(select category from music_categories where id=music_categories_id) as category,description,created_at,updated_at")]);
+            //$data['tracksCount'] = albums::join('music_categories', 'music_categories.id', '=', 'albums.music_categories_id')->get();
+           
+            // load the view and pass the data
+            return view('admin.artistlist', ['data'=>$data]);
+    
+        // get all the albums 
+       // return view('admin/artistlist');
+      }
+
     
         /**
             * Show the form for creating a new resource.
@@ -66,14 +70,21 @@ class ArtistsController extends Controller
             * @return Response
             */    
         public function store(Request $request)
+
         {
             
+              if($request->hasFile('image'))
+              {
                 $image = $request->file('image');
-                $imageName = time().'.'.$image->getClientOriginalExtension();  
-                $request->image->move(public_path('images'), $imageName);
+                $artist_pic= $imageName = time().'.'.$image->getClientOriginalExtension();  
+                $request->image->move(public_path('assets/media/artist'), $imageName);
+              }
+              else
+              $artist_pic =''; 
+                
                 //$request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
 
-                $artist_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+                //$artist_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
             
            // validate
 
@@ -123,15 +134,11 @@ class ArtistsController extends Controller
             */
         public function update(Request $request)
         {
-            if($request->hasFile('image'))
+            if($request->hasFile('artist_pic'))
             {
-            $image = $request->file('image');
-            $imageName = time().'.'.$image->getClientOriginalExtension();  
-            
-            // $request->image->move(public_path('images'), $imageName);
-            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
-
-            $artist_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+              $image = $request->file('artist_pic');
+              $artist_pic= $imageName = time().'.'.$image->getClientOriginalExtension();  
+              $request->artist_pic->move(public_path('assets/media/artist'), $imageName);
             }
             else
             $artist_pic =''; 
@@ -144,6 +151,7 @@ class ArtistsController extends Controller
            $artist=artists::where('id',$request->input('id'))->first();
            $artist->music_categories_id = $request->mcategory;
            $artist->artist_name = $request->artist_name;
+           if($artist_pic!="")
            $artist->artist_pic = $artist_pic;
            $artist->id = $request->id;
            $artist->description = $request->description;
@@ -159,8 +167,7 @@ class ArtistsController extends Controller
             * @return Response
             */
         public function destroy($id)
-        {
-         
+        { 
             artists::find($id)->delete();
             return redirect()->back();
         }

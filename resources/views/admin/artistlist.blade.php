@@ -36,7 +36,7 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
-        <div class="table_box" style="overflow-x: scroll; width:1120px;">
+        <div class="table_box" style="overflow-x: scroll;">
             <table class="table table-hover">
             <thead>
                 <tr>
@@ -60,8 +60,8 @@
                     <td>{{ $value->category}}</td>
                     <td> {{ $value->artist_name}} </td>
                     <td>
-                    <a href="{{ URL::to('admin/artist/' . $value->id) }}">
-                    <img src="{{ $value->artist_pic}}" alt="/"></a>
+                    <a href="{{ URL::to('public/assets/media/artist/' . $value->artist_pic) }}">
+                    <img src="{{ URL::to('public/assets/media/artist/' . $value->artist_pic) }}" alt="/"></a>
                     </td>
                      <td>{{ $value->description }}</td> 
                      <!-- <td></td> -->
@@ -162,7 +162,7 @@
       </div>
 
       <div class="modal-body">
-        <form role="form" action="{{ url('artist-update')}}" method="POST">
+        <form role="form" action="{{ url('artist-update')}}" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="">
           @csrf
           <div class="box-body">
@@ -190,7 +190,7 @@
             <div class="form-group">
               <label for="">Artist Pic</label> 
               <input type="file" class="form-control" name="artist_pic" id="artist_pic" onchange="">
-              <img scr="" id="artist_image">
+              <img scr="" id="artist_image" style="width: 50%;">
               <!-- <input type="text" class="form-control" name="username" placeholder="Artist Pic"> -->
             </div>
             <div class="form-group">
@@ -231,7 +231,7 @@
     const splitData = showData.split("-");
     console.log(splitData);
     $("#artist_name").val(splitData[0]);
-    $("#artist_image").attr("src",splitData[1])
+    $("#artist_image").attr("src",'../public/assets/media/artist/'+splitData[1].trim())
     //$("#artist_pic").val(splitData[1]);
     $("#description_edit").html(splitData[2]);
     $("#mcategory").val(splitData[3])

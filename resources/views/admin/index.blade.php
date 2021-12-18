@@ -39,7 +39,7 @@
         <div class="card">
         <div class="card-body">
             
-            <table class="table table-hover">
+            <table class="table table-hover" style="overflow-x: scroll; width:1013px;">
             <thead>
                 <tr>
                     <th>Music</th>
@@ -62,9 +62,10 @@
                 <tr>
                     <!-- show the album (uses the show method found at GET /album/{id} -->
                     <td>{{ $value->category}}</td> 
-                    <td><a href="{{ URL::to('admin/albums/' . $value->id) }}">
-                    <img src="{{ $value->album_pic}}" alt="/">{{ $value->album_name}}</a>
-                   </td>
+                    <td>
+                    <a href="{{ URL::to('public/assets/media/album/' . $value->album_pic) }}">
+                    <img src="{{ URL::to('public/assets/media/album/' . $value->album_pic) }}" alt="/"></a>
+                    </td>
                     <td class="text-primary"> {{ $value->artists_name }}</td>
                     <td>{{ $value->description}}</td> 
                     <!-- <td>{{ $value->artists_id}}</td> -->
@@ -107,7 +108,7 @@
       </div>
 
       <div class="modal-body">
-        <form role="form" action="{{ url('album-save')}}" method="POST">
+        <form role="form" action="{{ url('album-save')}}" method="POST" enctype="multipart/form-data">
         @csrf
           <div class="box-body">
           <div class="form-group">
@@ -184,7 +185,7 @@
       </div>
       
       <div class="modal-body">
-      <form role="form" action="{{ url('album-update')}}" method="POST">
+      <form role="form" action="{{ url('album-update')}}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="">
           @csrf
           <div class="box-body">
@@ -250,7 +251,8 @@
     const splitData = showData.split("@");
     console.log(splitData);
    $("#album_name").val(splitData[0]);
-   $("#artist_image").attr("src",splitData[1]);
+   $("#artist_image").attr("src",'../public/assets/media/album/'+splitData[1].trim())
+  // $("#artist_image").attr("src",splitData[1]);
    $("#description_edit").html(splitData[2]);
      $("#music_categories_id").val(splitData[3])
      $("#id").val(splitData[4])

@@ -89,16 +89,16 @@ class AlbumsController extends Controller
             * @return Response
             */
         public function store(Request $request)
+          
         {
             if($request->hasFile('image'))
             {
             $image = $request->file('image');
-            $imageName = time().'.'.$image->extension();  
+            $album_pic= $imageName = time().'.'.$image->extension();  
             
             // $request->image->move(public_path('images'), $imageName);
-            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
+            $request->image->move(public_path('assets/media/album'), $imageName);
 
-            $album_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
             }
             else
             $album_pic =''; 
@@ -203,16 +203,16 @@ class AlbumsController extends Controller
             * @return Response
             */
         public function update(Request $request)
+        
         {
             if($request->hasFile('image'))
             {
             $image = $request->file('image');
-            $imageName = time().'.'.$image->getClientOriginalExtension();  
+            $album_pic= $imageName = time().'.'.$image->extension();  
             
             // $request->image->move(public_path('images'), $imageName);
-            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
+            $request->image->move(public_path('assets/media/album'), $imageName);
 
-            $album_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
             }
             else
             $album_pic =''; 

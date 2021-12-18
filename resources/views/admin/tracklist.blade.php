@@ -36,7 +36,7 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
-            <div class="table_box" style="overflow-x: scroll; width:1120px;">
+            <div class="table_box" style="overflow-x: scroll; width:1029px;">
             <table class="table table-hover">
             <thead>
                 <tr>
@@ -61,8 +61,8 @@
                     <!-- show the album (uses the show method found at GET /album/{id} -->
                     <td>{{ $value->category}}</td>
                     <td>
-                    <a href="{{ URL::to('admin/tractlist' . $value->id) }}">
-                    <img src="{{ $value->track_pic}}" alt="/"></a>
+                    <a href="{{ URL::to('public/assets/media/track/' . $value->track_pic) }}">
+                    <img src="{{ URL::to('public/assets/media/track/' . $value->track_pic) }}" alt="/"></a>
                     </td>
                     <td> {{ $value->track_name}} </td>
                       <td>
@@ -109,7 +109,7 @@
       </div>
 
       <div class="modal-body">
-      <form role="form" action="{{ url('tractlist-save')}}" method="POST">
+      <form role="form" action="{{ url('tractlist-save')}}" method="POST" enctype="multipart/form-data">
        @csrf  
           <div class="box-body">  
             <div class="form-group">
@@ -164,7 +164,7 @@
        <!-- <input type="hidden" name="_token" value=""> -->
 
       <div class="modal-body">
-      <form role="form" action="{{ url('tractlist-update')}}" method="POST">
+      <form role="form" action="{{ url('tractlist-update')}}" method="POST" enctype="multipart/form-data">
        @csrf  
           <div class="box-body">  
             <div class="form-group">
@@ -177,7 +177,7 @@
             <div class="form-group">
               <label for="">Track Pic</label> 
               <input type="file" class="form-control" name="track_pic" onchange="">
-              <img scr="" id="artist_image" style="width: 50%;">
+              <img scr="" id="track_pic" style="width: 50%;">
               <!-- <input type="text" class="form-control" name="username" placeholder="Artist Pic"> -->
             </div>
             <div class="form-group">
@@ -187,7 +187,7 @@
             </div>
             <div class="form-group">
               <label for="">Track Time</label> 
-              <input type="text" id="track_time" class="form-control" name="track_time" placeholder="Enter Track Time" >
+              <input type="time" class="form-control" name="track_time" placeholder="Enter Track Time">
             </div>  
             <div class="form-group">
               <label for="">Description</label> 
@@ -222,7 +222,7 @@
     const splitData = showData.split("@");
      console.log(splitData);
     $("#track_name").val(splitData[0]);
-    $("#artist_image").attr("src",splitData[1]);
+    $("#track_pic").attr("src",'../public/assets/media/track/'+splitData[1].trim());
     $("#track").attr("src",splitData[2]);   
     $("#track_time").val(splitData[3]);  
     $("#description_edit").val(splitData[4]);

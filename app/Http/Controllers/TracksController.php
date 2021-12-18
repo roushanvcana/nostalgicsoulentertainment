@@ -52,8 +52,12 @@ class TracksController extends Controller
             $data['album_id']=$id;
             $data['albumData']=albums::where('id',$id)->first();
             $data['music_category']=music_categories::all();
+           // $data['tracksCount'] = tracks::get([
+              //  DB::raw("id,track_pic,track_name,artists_id,(select artist_name from artists where id=artists_id) as artists_name,music_categories_id,(select category from music_categories where id=music_categories_id) as category,description,created_at,updated_at")]);
+             $data['tracksCount'] = tracks::where('albums_id', $id)->get([
+                DB::raw("id,artists_id,track_pic,track_name,music_categories_id,(select category from music_categories where id=music_categories_id) as category,description,created_at,updated_at")]);
             // $data['tracksCount']=artists::all();
-            $data['tracksCount'] = tracks::join('music_categories', 'music_categories.id', '=', 'tracks.music_categories_id')->where('albums_id',$id)->get();
+           // $data['tracksCount'] = tracks::join('music_categories', 'music_categories.id', '=', 'tracks.music_categories_id')->where('albums_id',$id)->get();
            
             // load the view and pass the data
             return view('admin.tracklist', ['data'=>$data]);
@@ -106,15 +110,15 @@ class TracksController extends Controller
             */
         public function store(Request $request)
         {
-            if($request->hasFile('image'))
+            if($request->hasFile('track_pic'))
             {
-            $image = $request->file('image');
-            $imageName = time().'.'.$image->getClientOriginalExtension();  
+            $image = $request->file('track_pic');
+            $track_pic= $imageName = time().'.'.$image->getClientOriginalExtension();  
             
             // $request->image->move(public_path('images'), $imageName);
-            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
+            $request->track_pic->move(public_path('assets/media/track'), $imageName);
 
-            $track_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+            //$track_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
             }
             else
             $track_pic =''; 
@@ -128,7 +132,7 @@ class TracksController extends Controller
            $track->artists_id = $request->artists_id;
            $track->music_categories_id = $request->mcategory;
            $track->track_name = $request->track_name;
-           $track->track_pic = $request->$track_pic;
+           $track->track_pic = $track_pic;
            $track->track_time = $request->track_time;
            $track->track = $request->track;
            $track->id = $request->id;
@@ -168,15 +172,15 @@ class TracksController extends Controller
             */
         public function update(Request $request)
         {
-            if($request->hasFile('image'))
+            if($request->hasFile('track_pic'))
             {
-            $image = $request->file('image');
-            $imageName = time().'.'.$image->getClientOriginalExtension();  
+            $image = $request->file('track_pic');
+            $track_pic= $imageName = time().'.'.$image->getClientOriginalExtension();  
             
             // $request->image->move(public_path('images'), $imageName);
-            $request->image->move(public_path('assets/media/NSM_Photos'), $imageName);
+            $request->track_pic->move(public_path('assets/media/track'), $imageName);
 
-            $track_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
+            //$track_pic = "http://vcanaglobal.ga/nostalgicSoulEntertainment/assets/media/NSM_Photos/".$imageName;
             }
             else
             $track_pic =''; 
@@ -190,7 +194,7 @@ class TracksController extends Controller
            $track->artists_id = $request->artists_id;
            $track->music_categories_id = $request->mcategory;
            $track->track_name = $request->track_name;
-           $track->track_pic = $request->$track_pic;
+           $track->track_pic = $track_pic;
            $track->track_time = $request->track_time;
            $track->track = $request->track;
            $track->id = $request->id;
