@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AlbumsController;
 use App\Http\Controllers\ArtistsController;
 use App\Http\Controllers\TracksController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,11 @@ use App\Http\Controllers\TracksController;
 
 //Route::get('/', function () { return view('welcome'); });
 
-Route::get('/h', [@WelcomeController::class, 'index']);
+
 // Route::view('/albums', 'albums');
 // Route::view('/album', 'album');
 // Route::view('/genre', 'genre');
+Route::get('/', [WelcomeController::class, 'index']);
 Route::post('/artist-save', [ArtistsController::class, 'store']);
 Route::post('/artist-update', [ArtistsController::class, 'update']);
 Route::get('/artist-delete/{id}', [ArtistsController::class, 'destroy']);

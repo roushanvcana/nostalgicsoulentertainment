@@ -555,13 +555,17 @@
                                                 <div class="mt-3">
                                                     <ul class="nav nav-tabs card-header-tabs nav-material responsive-tab mb-1"
                                                         role="tablist">
+                                                        <?php $i=1;?>
+                                                        @foreach($category as $key => $value)
                                                         <li class="nav-item">
-                                                            <a class="nav-link active show" id="w2--tab1"
+                                                            <a class="nav-link <?php echo $i==1?'active':''; ?> show" id="w2--tab1"
                                                                data-toggle="tab" href="#w2-tab1"
                                                                role="tab"
-                                                               aria-selected="true">Rock</a>
+                                                               aria-selected="true">{{$value->category}}</a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <?php $i++;?>
+                                                        @endforeach
+                                                        <!-- <li class="nav-item">
                                                             <a class="nav-link" id="w3--tab1" data-toggle="tab"
                                                                href="#w2-tab1"
                                                                role="tab"
@@ -584,7 +588,7 @@
                                                                href="#w2-tab3" role="tab"
 
                                                                aria-selected="false">Classic</a>
-                                                        </li>
+                                                        </li> -->
                                                     </ul>
                                                 </div>
                                             </div>
@@ -606,12 +610,20 @@
                                                            <i class="icon-play s-28"></i>
                                                        </a>
                                                    </div>
-                                                   <div class="col-md-6">
+                                                
+
+                                                    <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
                                                            <img class="r-3" src="{{ asset('public/assets/img/demo/a1.jpg')}}" alt="">
                                                        </figure>
-                                                       <h6>Dance with me tonight</h6>Lorem Ipsum
-                                                   </div>
+                                                       <?php $i=1;?>
+                                                        @foreach($data['tracksCount'] as $key => $value)
+                                                        <h6>{{ $value->album_name }}</h6>Lorem Ipsum
+                                                        <?php $i++;?>
+                                                        @endforeach
+                                                      
+                                                   </div> 
+
                                                    <div class="col-md-5 d-none d-lg-block">
                                                        <div class="d-flex">
                                                            <span class="ml-auto"> 5:03</span>
@@ -638,12 +650,14 @@
                                                            <i class="icon-play s-28"></i>
                                                        </a>
                                                    </div>
-                                                   <div class="col-md-6">
+
+                                                   <!-- <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
                                                            <img class="r-3" src="{{ asset('public/assets/img/demo/a2.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
-                                                   </div>
+                                                   </div> -->
+
                                                    <div class="col-md-5 d-none d-lg-block">
                                                        <div class="d-flex">
                                                            <span class="ml-auto"> 5:03</span>
@@ -670,12 +684,14 @@
                                                            <i class="icon-play s-28"></i>
                                                        </a>
                                                    </div>
-                                                   <div class="col-md-6">
+
+                                                   <!-- <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
                                                            <img class="r-3" src="{{ asset('public/assets/img/demo/a3.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
-                                                   </div>
+                                                   </div> -->
+
                                                    <div class="col-md-5 d-none d-lg-block">
                                                        <div class="d-flex">
                                                            <span class="ml-auto"> 5:03</span>
@@ -702,12 +718,14 @@
                                                            <i class="icon-play s-28"></i>
                                                        </a>
                                                    </div>
-                                                   <div class="col-md-6">
+
+                                                   <!-- <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
                                                            <img class="r-3" src="{{ asset('public/assets/img/demo/a4.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
-                                                   </div>
+                                                   </div> -->
+
                                                    <div class="col-md-5 d-none d-lg-block">
                                                        <div class="d-flex">
                                                            <span class="ml-auto"> 5:03</span>
@@ -734,12 +752,14 @@
                                                            <i class="icon-play s-28"></i>
                                                        </a>
                                                    </div>
-                                                   <div class="col-md-6">
+
+                                                   <!-- <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
                                                            <img class="r-3" src="{{ asset('public/assets/img/demo/a5.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
-                                                   </div>
+                                                   </div> -->
+
                                                    <div class="col-md-5 d-none d-lg-block">
                                                        <div class="d-flex">
                                                            <span class="ml-auto"> 5:03</span>
@@ -766,12 +786,14 @@
                                                            <i class="icon-play s-28"></i>
                                                        </a>
                                                    </div>
-                                                   <div class="col-md-6">
+
+                                                   <!-- <div class="col-md-6">
                                                        <figure class="avatar-md float-left  mr-3 mt-1">
                                                            <img class="r-3" src="{{ asset('public/assets/img/demo/a8.jpg')}}" alt="">
                                                        </figure>
                                                        <h6>Dance with me tonight</h6>Lorem Ipsum
-                                                   </div>
+                                                   </div> -->
+
                                                    <div class="col-md-5 d-none d-lg-block">
                                                        <div class="d-flex">
                                                            <span class="ml-auto"> 5:03</span>
@@ -793,6 +815,7 @@
                                            </div>
                                        </div>
                                     </div>
+
                                     <div class="tab-pane fade" id="w2-tab3" role="tabpanel"
                                          aria-labelledby="w2-tab3">
                                         <div class="card-body has-items-overlay playlist p-5">
