@@ -226,6 +226,7 @@ class AlbumsController extends Controller
            $album->music_categories_id = $request->music_categories_id;
            $album->artists_id = $request->artists_id;
            $album->album_name = $request->album_name;
+           if($album_pic!="")
            $album->album_pic = $album_pic;
            $album->id = $request->id;
            $album->description = $request->description;

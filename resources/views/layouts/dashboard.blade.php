@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="{{ asset('dashboard_assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{ asset('dashboard_assets/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{ asset('dashboard_assets/vendors/css/vendor.bundle.addons.css')}}">
+
+    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" rel="stylesheet">
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
@@ -332,5 +335,7 @@
     <script src="{{ asset('dashboard_assets/js/demo_1/dashboard.js')}}"></script>
     <!-- End custom js for this page-->
     {{-- <script src="{{ asset('dashboard_assets/js/shared/jquery.cookie.js')}}" type="text/javascript"></script> --}}
+
+
   </body>
 </html>

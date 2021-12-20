@@ -38,12 +38,13 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
-            
-            <table class="table table-hover" style="overflow-x: scroll; width:1013px;">
+        <div class="table_box" style="overflow-x: scroll; width:1029px;">
+            <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Music</th>
                     <th>Album</th>
+                    <th>Album Name</th>
                     <th>Artist</th>
                     <th>Description</th>
                     <th>Added on</th>
@@ -66,6 +67,7 @@
                     <a href="{{ URL::to('public/assets/media/album/' . $value->album_pic) }}">
                     <img src="{{ URL::to('public/assets/media/album/' . $value->album_pic) }}" alt="/"></a>
                     </td>
+                    <td>{{ $value->album_name }}</td>
                     <td class="text-primary"> {{ $value->artists_name }}</td>
                     <td>{{ $value->description}}</td> 
                     <!-- <td>{{ $value->artists_id}}</td> -->
@@ -93,6 +95,7 @@
                 @endforeach
             </tbody>
             </table>
+        </div>
         </div>
         </div>
     </div>

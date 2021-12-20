@@ -55,7 +55,7 @@ class TracksController extends Controller
            // $data['tracksCount'] = tracks::get([
               //  DB::raw("id,track_pic,track_name,artists_id,(select artist_name from artists where id=artists_id) as artists_name,music_categories_id,(select category from music_categories where id=music_categories_id) as category,description,created_at,updated_at")]);
              $data['tracksCount'] = tracks::where('albums_id', $id)->get([
-                DB::raw("id,artists_id,track_pic,track_name,music_categories_id,(select category from music_categories where id=music_categories_id) as category,description,created_at,updated_at")]);
+                DB::raw("id,artists_id,track_pic,track_name,track_time,music_categories_id,(select category from music_categories where id=music_categories_id) as category,description,created_at,updated_at")]);
             // $data['tracksCount']=artists::all();
            // $data['tracksCount'] = tracks::join('music_categories', 'music_categories.id', '=', 'tracks.music_categories_id')->where('albums_id',$id)->get();
            
@@ -194,6 +194,7 @@ class TracksController extends Controller
            $track->artists_id = $request->artists_id;
            $track->music_categories_id = $request->mcategory;
            $track->track_name = $request->track_name;
+           if($track_pic!="")
            $track->track_pic = $track_pic;
            $track->track_time = $request->track_time;
            $track->track = $request->track;

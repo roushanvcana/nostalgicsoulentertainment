@@ -55,7 +55,7 @@
             @foreach($data['tracksCount'] as $key => $value)
             <?php 
             $alldata='';
-            $alldata="$value->track_name@$value->track_pic@$value->track@$value->track_time@$value->description@$value->id@$value->albums_id";
+            $alldata="$value->track_name@$value->track_pic@$value->track_time@$value->description@$value->id@$value->albums_id";
                 ?>
                 <tr>
                     <!-- show the album (uses the show method found at GET /album/{id} -->
@@ -180,15 +180,15 @@
               <img scr="" id="track_pic" style="width: 50%;">
               <!-- <input type="text" class="form-control" name="username" placeholder="Artist Pic"> -->
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="">Track</label> 
               <input type="file" class="form-control" id="track" name="track" accept="audio/*">
-              <!-- <input type="text" class="form-control" name="track" placeholder="Upload Track" > -->
-            </div>
-            <div class="form-group">
+            </div> -->
+             <div class="form-group">
               <label for="">Track Time</label> 
-              <input type="time" class="form-control" name="track_time" placeholder="Enter Track Time">
-            </div>  
+              <input type="time" class="form-control" id="track_time" name="track_time" placeholder="Enter Track Time">
+
+            </div>   
             <div class="form-group">
               <label for="">Description</label> 
            <textarea id="description_edit" placeholder="Enter Description" name="description" class="form-control"></textarea>
@@ -223,10 +223,12 @@
      console.log(splitData);
     $("#track_name").val(splitData[0]);
     $("#track_pic").attr("src",'../public/assets/media/track/'+splitData[1].trim());
-    $("#track").attr("src",splitData[2]);   
-    $("#track_time").val(splitData[3]);  
-    $("#description_edit").val(splitData[4]);
-    $("#id").val(splitData[5])
+    $("#track_time").val(splitData[2]); 
+    $("#description_edit").val(splitData[3]);
+    $("#id").val(splitData[4])
+    $("#album_id").val(splitData[5]);
+    //$("#track").attr("src",splitData[2]);   
+    // 
     //$("#artist_pic").val(splitData[1]);
    
     //$("#mcategory").val(splitData[3])
