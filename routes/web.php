@@ -21,7 +21,9 @@ use App\Http\Controllers\TracksController;
 */
 
 
-Route::get('/', function () { return view('welcome'); });
+//Route::get('/', function () { return view('welcome'); });
+
+Route::get('/h', [@WelcomeController::class, 'index']);
 // Route::view('/albums', 'albums');
 // Route::view('/album', 'album');
 // Route::view('/genre', 'genre');
